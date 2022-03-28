@@ -7,6 +7,25 @@ $admin->check_login();
 if (isset($_GET['logout'])) {   
     $admin->logout();
 }
+
+$fetch_movies = mysqli_query($connect,"select * from movie");
+$fetch_branches = mysqli_query($connect,"select * from branch");
+$fetch_halls = mysqli_query($connect,"select * from hall");
+
+if(isset($_POST['add_screen'])){
+	// echo $_POST['screen_id']."<br>";
+	// echo $_POST['movie_id']."<br>";
+	// echo $_POST['branch_id']."<br>";
+	// echo $_POST['hall_id']."<br>";
+	// echo $_POST['screening_date']."<br>";
+	// echo $_POST['screening_time']."<br>";
+	// exit();
+
+	mysqli_query($connect, "insert into screening(screen_id, movie_id, branch_id, hall_id, screening_date, screening_time) values('".$_POST['screen_id']."','".$_POST['movie_id']."', '".$_POST['branch_id']."', '".$_POST['hall_id']."', '".$_POST['screening_date']."', '".$_POST['screening_time']."') ");
+
+	header('location:screen.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,19 +35,6 @@ if (isset($_GET['logout'])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="./styles/style.css" />
-		<style type="text/css">
-			.draw-body .content .button-bar-screen {
-   
-    display: flex;
-}
-button {
-    margin: 20px 134px 20px 20px;
-}
-a {
-    color: white;
-    text-decoration: none;
-}
-		</style>
 	</head>
 	<body>
 		<div class="navbar">
@@ -37,7 +43,7 @@ a {
 				<p>IMMERSIVE EXPERIENCE</p>
 			</div>
 			<div class="heading">
-				<h1>Screening Edit</h1>
+				<h1>Add New Screen</h1>
 			</div>
 			<div class="date">
 				<h2><?php echo date("j F, Y, g:i A") ?></h2>
@@ -52,11 +58,12 @@ a {
 				<li><a href="./profile.php">My Profile</a></li>
 				<li><a href="screen.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>
+			<form method="post" action="#">
 			<div class="content">
 				<div class="button-bar-screen">
-					<button class="delete">DELETE</button>
-					<button><a href="addScreen.php">New Screen</a></button>
-					<button>Save Changes</button>
+					<button class="delete" >DELETE</button>
+
+					<button type="submit" name="add_screen">Add Screen</button>
 				</div>
 				<div class="main">
 					<div class="box-account screen">
@@ -69,13 +76,56 @@ a {
 							<li>Time:</li>
 						</div>
 						<div class="right">
-							<li>S00001</li>
-							<li>M00001 The Batman Movie</li>
-							<li>B0001 CFTv KLCC</li>
-							<li>H0001 - 1</li>
-							<li>3/3/2022</li>
-							<li>1.30pm</li>
+							<li><input type="text" name="screen_id" style="width:750px; font-size: 1.3rem; border: none;" placeholder="Enter screen here..." required></li>
+							<li>
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="movie_id">
+									<option>Select Movie</option>
+									<?php
+										while($movie = mysqli_fetch_assoc($fetch_movies)){
+									?>
+
+										<option value="<?php echo $movie['movie_id'];?>"><?php echo $movie['movie_name'];?></option>
+
+									<?php
+										}
+									?>
+									
+								</select>
+							</li>
+							<li>
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="branch_id">
+									<option >Select Branch</option>
+									<?php
+										while($branch = mysqli_fetch_assoc($fetch_branches)){
+									?>
+
+										<option value="<?php echo $branch['br_id'];?>"><?php echo $branch['branch_name'];?></option>
+
+									<?php
+										}
+									?>
+									
+								</select>
+							</li>
+							<li>
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="hall_id">
+									<option value="0">Select Hall</option>
+									<?php
+										while($hall = mysqli_fetch_assoc($fetch_halls)){
+									?>
+
+										<option value="<?php echo $hall['hall_id'];?>"><?php echo $hall['hall_no'];?></option>
+
+									<?php
+										}
+									?>
+									
+								</select>
+							</li>
+							<li><input type="date" name="screening_date" style="width:750px; font-size: 1.3rem; border: none;" required></li>
+							<li><input type="text" name="screening_time" style="width:750px; font-size: 1.3rem; border: none;" required></li>
 						</div>
+							</form>
 					</div>
 					<div class="screen-box">
 						<div class="movie-screen">

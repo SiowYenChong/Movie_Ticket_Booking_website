@@ -76,7 +76,7 @@ if (isset($_GET['logout'])) {
 				<h1>Homepage</h1>
 			</div>
 			<div class="date">
-				<h2>7 March 2022, 6:16PM</h2>
+				<h2><?php echo date("j F, Y, g:i A") ?></h2>
 			</div>
 		</div>
 	<div class="body">

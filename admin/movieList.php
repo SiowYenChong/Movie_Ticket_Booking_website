@@ -7,6 +7,12 @@ $admin->check_login();
 if (isset($_GET['logout'])) {   // 
     $admin->logout();
 }
+//Fetch movies from database...
+$fetch_movies = mysqli_query($connect, "select * from movie");
+
+if(isset($_POST['sort_movie'])){
+	$fetch_movies = mysqli_query($connect, "select * from movie order by movie_name asc");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +40,10 @@ a{
 .\.button_m {
     float: right;
     text-align: right;
-    margin: 30px 35px 10px 10px;
+    margin: 5px 35px 10px 10px;
+}
+#tr_link{
+	color: black;
 }
 </style>
 	</head>
@@ -48,7 +57,7 @@ a{
 				<h1>Movie List</h1>
 			</div>
 			<div class="date">
-				<h2>7 March 2022, 6:16PM</h2>
+				<h2><?php echo date("j F, Y, g:i A") ?></h2>
 			</div>
 		</div>
 		<div class="draw-body">
@@ -62,7 +71,11 @@ a{
 			</div>
 			<div class="content">
             <div class=".button_m">
-              <button>Sort By</button>
+              <form method="post" action="#" style="display: inline;">
+						
+						<button type="submit" name="sort_movie">Sort By</button>
+
+					</form>
               <button><a href="addMovie.php">New Movie</a></button>
             </div>
           <table>
@@ -72,180 +85,25 @@ a{
               <th width="40%">Trailer</th>
               <th width="5%"></th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
+            <?php
+            $count = 1;
+              while($movie = mysqli_fetch_assoc($fetch_movies)){
+                
+             ?>
+              <tr>
+              <td><?php echo $count;?></td>
+              <td><img src="images/<?php echo $movie['movie_poster']; ?>" class="mv_img_list" align="left"> Movie Name: <?php echo $movie['movie_name']; ?> <br>Duration: <?php echo $movie['movie_duration']; ?> <br> Publish Date: <?php echo $movie['movie_date']; ?> <br> Rating: <?php echo $movie['movie_rating']; ?></td>
+              <td><a href="<?php echo $movie['movie_trailer']; ?>" id="tr_link"><?php echo $movie['movie_trailer']; ?></a></td>
+              <td><button class="mv_ed_btn"><a href="movieEdit.php?id=<?php echo $movie['movie_id']; ?>">Edit</a></button></td>
             </tr>
-             <tr>
-              <td>2</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
-            </tr>
-             <tr>
-              <td>3</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
-            </tr>
-             <tr>
-              <td>4</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
-            </tr>
-             <tr>
-              <td>5</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
-            </tr>
-             <tr>
-              <td>6</td>
-              <td><img src="images/user.png" class="mv_img_list" align="left"> Movie Name: The Batman Movie <br>Duration: 185 <br> Publish Date: 5 March 2022 <br> Rating: 18</td>
-              <td><a href="#"><img src="images/mov_trailer.png" class="mv_tr_list"></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php">Edit</a></button></td>
-            </tr>
-          
+
+             <?php  
+             ++$count; 
+              }
+            ?>
+           
           </table>
         </div>
 		</div>
 	</body>
 </html>
-<!--
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Booking App</title>
-
-  <style type="text/css">
-    .header{
-      width: 100%;
-      height: 40px;
-    }
-    .header > h2 {
-      text-align: center;
-    }
-    .header > time {
-      float: right;
-    }
-    .sidebar{
-      width: 15%;
-      height: 550px;
-      background-color: #d11d27;
-      float: left;
-    }
-    .sidebar > ul > li {
-      list-style-type: none;
-      padding: 10px;
-    }
-    .sidebar > ul > li > a{
-      text-decoration: none;
-      color: white;
-      font-size: 20px;
-
-    }
-    .sidebar > ul > li:hover{
-      text-decoration: none;
-      color: white;
-      font-size: 20px;
-      background-color: #e53c38;
-    }
-    .body{
-      float: right;
-      background-color: #2f1414;
-      width: 85%;
-      height: 550px;
-    }
-    table, td, th {
-      border: 1px solid;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      text-align: center;
-    }
-    .buttons{
-      float: right;
-      padding: 10px;
-    }
-    button {
-      color: white;
-      background-color: #e53c38;
-      padding: 10px 25px 10px 25px;
-      border-radius: 10px;
-      border: none;
-
-    }
-  </style>
-</head>
-<body>
-
-  <div class="header">
-    <h2>Movie List/Overview</h2>
-    
-  </div>
-  <div class="sidebar">
-    <ul>
-      <li><a href="movieList.php">Movie</a></li>
-      <li><a href="branchList.php">Branch</a></li>
-      <li><a href="#">Account</a></li>
-      <li><a href="#">Screening</a></li>
-      <li><a href="#">My Profile</a></li>
-      <li><a href="#">Logout</a></li>
-    </ul>
-  </div>
-  <div class="body">
-    <div class="buttons">
-      <button>Sort By</button>
-      <button><a href="addMovie.php">New Movie</a></button>
-    </div>
-    <table>
-      <tr>
-        <th>No.</th>
-        <th>Movie Info</th>
-        <th>Trailer</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td><img src="#"> Movie Name <br> Duration <br> Publish Date <br> Rating</td>
-        <td><a href="#">Link</a></td>
-        <td><a href="movieEdit.php">Edit</a></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><img src="#"> Movie Name <br> Duration <br> Publish Date <br> Rating</td>
-        <td><a href="#">Link</a></td>
-        <td><a href="#">Edit</a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td><img src="#"> Movie Name <br> Duration <br> Publish Date <br> Rating</td>
-        <td><a href="#">Link</a></td>
-        <td><a href="#">Edit</a></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td><img src="#"> Movie Name <br> Duration <br> Publish Date <br> Rating</td>
-        <td><a href="#">Link</a></td>
-        <td><a href="#">Edit</a></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td><img src="#"> Movie Name <br> Duration <br> Publish Date <br> Rating</td>
-        <td><a href="#">Link</a></td>
-        <td><a href="#">Edit</a></td>
-      </tr>
-    </table>
-  </div>
-
-</body>
-</html>
-  -->

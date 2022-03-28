@@ -7,6 +7,11 @@ $admin->check_login();
 if (isset($_GET['logout'])) {   
     $admin->logout();
 }
+$fetch_branches = mysqli_query($connect, "select * from branch");
+
+if(isset($_POST['sort_branch'])){
+	$fetch_branches = mysqli_query($connect, "select * from branch order by branch_name asc");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +61,7 @@ button.br_ed_btn {
 				<h1>Branch List</h1>
 			</div>
 			<div class="date">
-				<h2>7 March 2022, 6:16PM</h2>
+				<h2><?php echo date("j F, Y, g:i A") ?></h2>
 			</div>
 		</div>
 		<div class="draw-body">
@@ -70,50 +75,37 @@ button.br_ed_btn {
 			</div>
 			<div class="content">
 				<div class="button-b">
-					<button >Sort By</button>
+					<form method="post" action="#" style="display: inline;">
+						
+						<button type="submit" name="sort_branch">Sort By</button>
+
+					</form>
+					
 				
 					<button><a href="./addBranch.php">New Branch</a></button>
 				</div>
 				<div class="main">
+					 <?php
+            $count = 1;
+              while($branch = mysqli_fetch_assoc($fetch_branches)){
+                
+             ?>
 					<div class="box-account">
 						<div class="image">
-							<img src="./images/branch.png" alt="user-image" />
+							<img src="./images/<?php echo $branch['branch_image']; ?>" alt="user-image" />
 						</div>
 						<div class="left">
-							<li>Branch ID: B001</li>
-							<li>Branch Name: CFTv JB</li>
-							<li>Location: Toppen Shopping Centre</li>
+							<li>Branch ID: <?php echo $branch['branch_id']; ?></li>
+							<li>Branch Name: <?php echo $branch['branch_name']; ?></li>
+							<li>Location: <?php echo $branch['branch_address']; ?></li>
 						</div>
-						<button class="br_ed_btn"><a href="branchEdit.php">Edit</a></button>
+						<button class="br_ed_btn"><a href="branchEdit.php?id=<?php echo $branch['br_id']; ?>">Edit</a></button>
 						
 					</div>
 					<br>
-					<div class="box-account">
-						<div class="image">
-							<img src="./images/branch.png" alt="user-image" />
-						</div>
-						<div class="left">
-							<li>Branch ID: B002</li>
-							<li>Branch Name: CFTv JB</li>
-							<li>Location: Toppen Shopping Centre</li>
-						</div>
-						<button class="br_ed_btn"><a href="">Edit</a></button>
-						
-					</div>
-					<div class="box-account">
-						<div class="image">
-							<img src="./images/branch.png" alt="user-image" />
-						</div>
-						<div class="left">
-							<li>Branch ID: B003</li>
-							<li>Branch Name: CFTv JB</li>
-							<li>Location: Toppen Shopping Centre</li>
-						</div>
-						<button class="br_ed_btn"><a href="">Edit</a></button>
-						
-					</div>
-
-					
+			<?php 
+				++$count;
+		} ?>					
 				</div>
 			</div>
 		</div>
