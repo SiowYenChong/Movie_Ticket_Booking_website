@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2022 at 05:21 PM
+-- Generation Time: Mar 29, 2022 at 11:02 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `to_assignment`
+-- Database: `admin`
 --
 
 -- --------------------------------------------------------
@@ -43,9 +43,9 @@ CREATE TABLE `branch` (
 --
 
 INSERT INTO `branch` (`br_id`, `branch_id`, `branch_name`, `branch_address`, `branch_image`, `no_of_halls`, `hall_id`, `screening_id`) VALUES
-(15, 'test branchh', 'branch name testt', 'addresss', '20180917_173240.jpg', 0, 33, NULL),
-(17, 'branch testingoo', 'branch name testingoo', 'address testingoo', 'IMG_20220227_191518.jpg', 3, 11, NULL),
-(18, 'abc', 'xyz', 'lkjhh', 'IMG_20220227_191215.jpg', 2, 0, NULL);
+(19, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 1, NULL),
+(20, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 6, 1, NULL),
+(21, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,10 @@ INSERT INTO `hall` (`h_id`, `hall_id`, `seat_id`, `hall_no`, `hall_type`, `hall_
 (3, 33, NULL, 1, 'abc type', 120),
 (4, 90, NULL, 90, 'uy', 45),
 (5, 1, NULL, 1, 'open', 20),
-(6, 0, NULL, 1, 'open', 300);
+(6, 0, NULL, 1, 'open', 300),
+(7, 1, NULL, 1, 'Premium', 100),
+(8, 1, NULL, 1, 'Economy', 200),
+(9, 1, NULL, 1, 'Economy', 100);
 
 -- --------------------------------------------------------
 
@@ -95,7 +98,8 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`, `movie_date`, `movie_rating`, `movie_trailer`, `movie_desc`, `movie_case`) VALUES
-(4, 'IMG_20220227_191518.jpg', 'houseyttt', '600', '2022-03-03', 51, 'https://www.youtube.com/embed/jYJS235KmpY', 'eutruertyuer', 'okii');
+(5, 'deepwater.jpg', 'Deep Water', '120', '2022-03-18', 4, 'https://www.youtube.com/embed/90JsrQwE5CA', '																Psychological thriller														', '2'),
+(6, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '88', '2022-05-06', 4, 'https://www.youtube.com/embed/aWzlQ2N6qqg', 'Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.', 'Marvel Studios');
 
 -- --------------------------------------------------------
 
@@ -156,8 +160,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `gender`, `dob`) VALUES
-(1, 'Assignment', 'Assignment', 'test', 'test@test.com', '1234', 'male', '1997-05-06'),
-(2, 'clair', 'teacherOn', 'clairTO', 'clair@gmail.com', 'clairTO000', 'female', '2026-03-11');
+(1, 'Assignment', 'Assignment', 'test', 'test@test.com', 'test', 'male', '1997-05-06'),
+(2, 'claire', 'chong', 'claire', 'clair@gmail.com', '456', 'female', '2000-03-11');
 
 --
 -- Indexes for dumped tables
@@ -213,19 +217,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `hall`
 --
 ALTER TABLE `hall`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `screening`
