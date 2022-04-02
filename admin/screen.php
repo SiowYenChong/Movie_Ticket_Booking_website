@@ -47,8 +47,8 @@ a {
 			<div class="drawer">
 				<li><a href="./movieList.php">Movie</a></li>
 				<li><a href="./branchList.php">Branch</a></li>
-				<li><a href="./account.php">Account</a></li>
-				<li class="active"><a href="./screen.php">Screening</a></li>
+				<li><a href="./account-list.php">Account</a></li>
+				<li class="active"><a href="./screenList.php">Screening</a></li>
 				<li><a href="./profile.php">My Profile</a></li>
 				<li><a href="screen.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>

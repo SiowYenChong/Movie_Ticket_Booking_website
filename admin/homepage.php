@@ -83,7 +83,7 @@ if (isset($_GET['logout'])) {
 		<div class="buttons">
 			<button><a href="./movieList.php">Movie</a></button>
 			<button><a href="./branchList.php">Branch</a></button>
-			<button><a href="./account.php">Account</button> <br>
+			<button><a href="./account-list.php">Account</button> <br>
 			<button><a href="./screen.php">Screening</button>
 			<button><a href="./profile.php">My Profile</button> <br><br>
 				<button class="lobtn"><a href="homepage.php?logout" title="Log Out">Log Out</a></button>

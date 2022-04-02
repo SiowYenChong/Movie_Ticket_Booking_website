@@ -419,10 +419,7 @@ body {
     padding: 2rem;
 }
 
-.draw-body .content .button-bar-ac-list {
-    display: grid;
-    grid-template-columns: 83% auto;
-}
+
 
 .main .ac-list {
     padding: 2rem;

@@ -7,10 +7,10 @@ $admin->check_login();
 if (isset($_GET['logout'])) {   
     $admin->logout();
 }
-$fetch_branches = mysqli_query($connect, "select * from branch GROUP BY branch_name");
+$fetch_screening = mysqli_query($connect, "select * from screening");
 
-if(isset($_POST['sort_branch'])){
-	$fetch_branches = mysqli_query($connect, "select * from branch GROUP BY branch_name order by branch_name asc");
+if(isset($_POST['sort_screening'])){
+	$fetch_screening = mysqli_query($connect, "select * from screening order by screen_id asc");
 }
 ?>
 <!DOCTYPE html>
@@ -36,9 +36,11 @@ img {
 .content .main .box-account {
 	padding: 0px !important;
 	margin-top: 30px !important;
+	display: flow-root;
 }
 button.br_ed_btn {
-    margin-top: 125px;
+ 
+    margin-left: 900px;
 }
 .left {
     padding-top: 10px;
@@ -47,6 +49,10 @@ button.br_ed_btn {
     float: right;
     text-align: right;
     margin: 30px 35px 10px 10px;
+}
+.draw-body .content {
+
+    grid-template-rows: 5% auto;
 }
 
 		</style>
@@ -58,7 +64,7 @@ button.br_ed_btn {
 				<p>IMMERSIVE EXPERIENCE</p>
 			</div>
 			<div class="heading">
-				<h1>Branch List</h1>
+				<h1>Screening List</h1>
 			</div>
 			<div class="date">
 				<h2><?php echo date("j F, Y, g:i A") ?></h2>
@@ -67,9 +73,9 @@ button.br_ed_btn {
 		<div class="draw-body">
 			<div class="drawer">
 				<li><a href="./movieList.php">Movie</a></li>
-				<li class="active"><a href="./branchList.php">Branch</a></li>
+				<li><a href="./branchList.php">Branch</a></li>
 				<li><a href="./account-list.php">Account</a></li>
-				<li><a href="./screenList.php">Screening</a></li>
+				<li class="active"><a href="./screenList.php">Screening</a></li>
 				<li><a href="./profile.php">My Profile</a></li>
 				<li><a href="branchList.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>
@@ -77,29 +83,31 @@ button.br_ed_btn {
 				<div class="button-b">
 					<form method="post" action="#" style="display: inline;">
 						
-						<button type="submit" name="sort_branch">Sort By</button>
+						<button type="submit" name="sort_screening">Sort By</button>
 
 					</form>
 					
 				
-					<button><a href="./addBranch.php">New Branch</a></button>
+					<button><a href="addScreen.php">New Screening</a></button>
 				</div>
 				<div class="main">
 					 <?php
             $count = 1;
-              while($branch = mysqli_fetch_assoc($fetch_branches)){
-                
+              while($screening = mysqli_fetch_assoc($fetch_screening)){
+                $movie_det = mysqli_query($connect, "select * from movie where movie_id = '".$screening['movie_id']."' ");
+                $movie = mysqli_fetch_assoc($movie_det);
              ?>
 					<div class="box-account">
-						<div class="image">
-							<img src="./images/<?php echo $branch['branch_image']; ?>" alt="user-image" />
-						</div>
+						
 						<div class="left">
-							<li>Branch ID: <?php echo $branch['branch_id']; ?></li>
-							<li>Branch Name: <?php echo $branch['branch_name']; ?></li>
-							<li>Location: <?php echo $branch['branch_address']; ?></li>
+							<li>Screening ID: <?php echo $screening['screen_id']; ?></li>
+							<li>Movie: <?php echo $movie['movie_name']; ?></li>
+							<li>Location: <?php echo $screening['branch_id']; ?></li>
+							<li>Hall: <?php echo $screening['hall_id']; ?></li>
+							<li>Date: <?php echo $screening['screening_date']; ?></li>
+							<li>Time: <?php echo $screening['screening_time']; ?></li>
 						</div>
-						<button class="br_ed_btn"><a href="branchEdit.php?id=<?php echo $branch['branch_id']; ?>&br_id=<?php echo $branch['br_id']; ?>">Edit</a></button>
+						<button class="br_ed_btn"><a href="screenEdit.php?id=<?php echo $screening['screening_id']; ?>">Edit</a></button>
 						
 					</div>
 					<br>

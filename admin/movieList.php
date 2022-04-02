@@ -22,30 +22,42 @@ if(isset($_POST['sort_movie'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="./styles/style.css" />
-<style type="text/css">
-  img.mv_img_list {
-    width: 100px;
-}
-img.mv_tr_list {
-    width: 400px;
-    height: 85px;
+		<style type="text/css">
+						.content .main .box-account .image {
+    display: flow-root;
 }
 a{
-  text-decoration: none;
-  color: white;
+	text-decoration: none;
+	color: white;
 }
-.mv_ed_btn{
-  width: 5rem !important;
+img {
+    border-radius: 10% 0% 0% 10%;
 }
-.\.button_m {
+
+.content .main .box-account {
+	padding: 0px !important;
+	margin-top: 30px !important;
+}
+button.br_ed_btn {
+    margin-top: 125px;
+}
+.left {
+    padding-top: 10px;
+}
+.button-b {
     float: right;
     text-align: right;
-    margin: 5px 35px 10px 10px;
+    margin: 30px 35px 10px 10px;
 }
 #tr_link{
 	color: black;
 }
-</style>
+#tr_link:hover{
+	color: black;
+	text-decoration: underline;
+}
+
+		</style>
 	</head>
 	<body>
 		<div class="navbar">
@@ -64,46 +76,48 @@ a{
 			<div class="drawer">
 				<li class="active"><a href="./movieList.php">Movie</a></li>
 				<li><a href="./branchList.php">Branch</a></li>
-				<li><a href="./account.php">Account</a></li>
-				<li><a href="./screen.php">Screening</a></li>
+				<li><a href="./account-list.php">Account</a></li>
+				<li><a href="./screenList.php">Screening</a></li>
 				<li><a href="./profile.php">My Profile</a></li>
-				<li><a href="movieList.php?logout" title="LogOut">LOGOUT</a></li>
+				<li><a href="branchList.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>
 			<div class="content">
-            <div class=".button_m">
-              <form method="post" action="#" style="display: inline;">
+				<div class="button-b">
+					<form method="post" action="#" style="display: inline;">
 						
 						<button type="submit" name="sort_movie">Sort By</button>
 
 					</form>
-              <button><a href="addMovie.php">New Movie</a></button>
-            </div>
-          <table>
-            <tr>
-              <th width="2%">No.</th>
-              <th width="40%">Movie Info</th>
-              <th width="40%">Trailer</th>
-              <th width="5%"></th>
-            </tr>
-            <?php
+					
+				
+					<button><a href="./addMovie.php">New Movie</a></button>
+				</div>
+				<div class="main">
+					 <?php
             $count = 1;
               while($movie = mysqli_fetch_assoc($fetch_movies)){
                 
              ?>
-              <tr>
-              <td><?php echo $count;?></td>
-              <td><img src="images/<?php echo $movie['movie_poster']; ?>" class="mv_img_list" align="left"> Movie Name: <?php echo $movie['movie_name']; ?> <br>Duration: <?php echo $movie['movie_duration']; ?> <br> Publish Date: <?php echo $movie['movie_date']; ?> <br> Rating: <?php echo $movie['movie_rating']; ?></td>
-              <td><a href="<?php echo $movie['movie_trailer']; ?>" id="tr_link"><?php echo $movie['movie_trailer']; ?></a></td>
-              <td><button class="mv_ed_btn"><a href="movieEdit.php?id=<?php echo $movie['movie_id']; ?>">Edit</a></button></td>
-            </tr>
-
-             <?php  
-             ++$count; 
-              }
-            ?>
-           
-          </table>
-        </div>
+					<div class="box-account">
+						<div class="image">
+							<img src="./images/<?php echo $movie['movie_poster']; ?>" alt="user-image" />
+						</div>
+						<div class="left">
+							<li>Movie Name: <?php echo $movie['movie_name']; ?></li>
+							<li>Duration: <?php echo $movie['movie_duration']; ?></li>
+							<li>Publish Date: <?php echo $movie['movie_date']; ?></li>
+							<li>Rating: <?php echo $movie['movie_rating']; ?></li>
+							<li>Trailer Link: <a href="<?php echo $movie['movie_trailer']; ?>" id="tr_link"><?php echo $movie['movie_trailer']; ?></a></li>
+						</div>
+						<button class="br_ed_btn"><a href="movieEdit.php?id=<?php echo $movie['movie_id']; ?>">Edit</a></button>
+						
+					</div>
+					<br>
+			<?php 
+				++$count;
+		} ?>					
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

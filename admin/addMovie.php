@@ -81,6 +81,9 @@ label {
     padding: 10px 45px 10px 45px;
     line-height: 45px;
 }
+.draw-body .content .button-bar-account {
+    grid-template-columns: 83% 16% auto;
+    }
 		</style>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script>
@@ -123,15 +126,15 @@ label {
 			<div class="drawer">
 				<li class="active"><a href="./movieList.php">Movie</a></li>
 				<li><a href="./branchList.php">Branch</a></li>
-				<li><a href="./account.php">Account</a></li>
-				<li><a href="./screen.php">Screening</a></li>
+				<li><a href="./account-list.php">Account</a></li>
+				<li><a href="./screenList.php">Screening</a></li>
 				<li><a href="./profile.php">My Profile</a></li>
 				<li><a href="addMovie.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>
 			<form method="post" enctype="multipart/form-data">
 			<div class="content">
 				<div class="button-bar-account">
-					<button class="delete">DELETE</button>
+					<!-- <button class="delete">DELETE</button> -->
 					<button type="reset">Reset Details</button>
 					<button type="submit" name="add_movie">Add Movie</button>
 				</div>

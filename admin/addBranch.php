@@ -13,19 +13,31 @@ if (isset($_GET['logout'])) {
   // If upload button is clicked ...
   if (isset($_POST['add_branch'])) {
 
+  	 // for ($i=0; $i <5 ; $i++) { 
+  	 // 	echo $_POST['hall_id'][$i]."<br>";
+  	 // 	echo $_POST['hall_num'][$i]."<br>";
+  	 // 	echo $_POST['hall_type'][$i]."<br>";
+  	 // 	echo $_POST['hall_capacity'][$i]."<br>";
+  	 // }
+  	 // exit();
+
     $filename = $_FILES["branch_image"]["name"];
     $tempname = $_FILES["branch_image"]["tmp_name"];    
         $folder = "images/".$filename;
 
      //   echo $_POST['branch_id']."<br>".$_POST['branch_name']."<br>".$_POST['branch_address']."<br>".$filename."'<br>'".$_POST['hall_id']."<br><br<br>".$_POST['hall_id']."'<br>'".$_POST['hall_num']."'<br>'".$_POST['hall_type']."'<br>'".$_POST['hall_capacity'];
        // exit();
-  
+  for ($i=0; $i <5 ; $i++) { 
+  		if ($_POST['hall_type'][$i] != "") {
         // Execute branch query
-        mysqli_query($connect, "insert into branch (branch_id, branch_name, branch_address, branch_image, hall_id, no_of_halls) values('".$_POST['branch_id']."', '".$_POST['branch_name']."', '".$_POST['branch_address']."', '".$filename."', '".$_POST['hall_id']."', '".$_POST['no_of_hall']."') ");
+        mysqli_query($connect, "insert into branch (branch_id, branch_name, branch_address, branch_image, hall_id, no_of_halls) values('".$_POST['branch_id']."', '".$_POST['branch_name']."', '".$_POST['branch_address']."', '".$filename."', '".$_POST['hall_id'][$i]."', '".$_POST['no_of_hall']."') ");
 
+      
+      
         //Execute hall query
-       mysqli_query($connect, "insert into hall (hall_id, hall_no, hall_type, hall_capacity) values('".$_POST['hall_id']."', '".$_POST['hall_num']."', '".$_POST['hall_type']."', '".$_POST['hall_capacity']."') ");
-          
+       mysqli_query($connect, "insert into hall (hall_id, hall_no, hall_type, hall_capacity) values('".$_POST['hall_id'][$i]."', '".$_POST['hall_num'][$i]."', '".$_POST['hall_type'][$i]."', '".$_POST['hall_capacity'][$i]."') ");
+       			}
+       } 
         // Now let's move the uploaded image into the folder: image
         if (move_uploaded_file($tempname, $folder))  {
             $msg = "Image uploaded successfully";
@@ -67,7 +79,9 @@ button#add_hall_row_btn {
     font-size: 16px;
 }
 
-
+.draw-body .content .button-bar-account {
+    grid-template-columns: 83% 16% auto;
+    }
 
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -109,15 +123,15 @@ button#add_hall_row_btn {
 			<div class="drawer">
 				<li><a href="./movieList.php">Movie</a></li>
 				<li class="active"><a href="./branchList.php">Branch</a></li>
-				<li><a href="./account.php">Account</a></li>
-				<li><a href="./screen.php">Screening</a></li>
+				<li><a href="./account-list.php">Account</a></li>
+				<li><a href="./screenList.php">Screening</a></li>
 				<li><a href="./profile.php">My Profile</a></li>
 				<li><a href="addBranch.php?logout" title="Log Out">LOGOUT</a></li>
 			</div>
 		<form method="post" enctype="multipart/form-data" action="#">
 			<div class="content">
 				<div class="button-bar-account">
-					<button class="delete">DELETE</button>
+				
 					<button type="reset">Reset Details</button>
 					<button type="submit" name="add_branch">Add Branch</button>
 				</div>
@@ -133,7 +147,7 @@ button#add_hall_row_btn {
 							<li><input type="text" name="branch_id" style="width:550px; font-size: 1.3rem; border: none;" placeholder="Enter branch id here..." required></li>
 							<li><input type="text" name="branch_name" style="width:550px; font-size: 1.3rem; border: none;" placeholder="Enter branch name here..." required></li>
 							<li><input type="text" name="branch_address" style="width:550px; font-size: 1.3rem; border: none;" placeholder="Enter branch address here..." required></li>
-							<li><input type="text" name="no_of_hall" id="no_of_hall" style="width:550px; font-size: 1.3rem; border: none;" placeholder="Enter no. of halls here..." required> </li>
+							<li><input type="number" name="no_of_hall" id="no_of_hall" style="width:550px; font-size: 1.3rem; border: none;" placeholder="Enter no. of halls here..." required min="1" max="5"> </li>
 							
 						</div>
 						<div class="image">
@@ -153,14 +167,24 @@ button#add_hall_row_btn {
 								<th>Hall Type</th>
 								<th>Capacity</th>
 							</tr>
-	
-
-							<tr>
-								<td><input type='text' name='hall_id' style='width:60px; font-size: 1.3rem; border: none;'required></td>
-								<td><input type='text' name='hall_num' style='width:60px; font-size: 1.3rem; border: none;'required></td>
-								<td><input type='text' name='hall_type' style='width:150px; font-size: 1.3rem; border: none;'  required></td>
-								<td><input type='text' name='hall_capacity' style='width:60px; font-size: 1.3rem; border: none;' required></td>
-							</tr>						
+			<?php
+					$get_last_hall_id = mysqli_query($connect,"select * from hall order by h_id desc");
+					$last_hall_id = mysqli_fetch_assoc($get_last_hall_id);
+					$next_id =  $last_hall_id['h_id'] + 1;
+					$nextFifth = $last_hall_id['h_id'] + 5;
+					//echo $nextFive;
+				for ($i=$next_id; $i <=$nextFifth ; $i++) { 
+			?>
+			<tr>
+								<td><input type='text' name='hall_id[]' style='width:60px; font-size: 1.3rem; border: none;' value="<?php echo $i; ?>" readonly></td>
+								<td><input type='text' name='hall_num[]' style='width:60px; font-size: 1.3rem; border: none;'></td>
+								<td><input type='text' name='hall_type[]' style='width:150px; font-size: 1.3rem; border: none;' ></td>
+								<td><input type='text' name='hall_capacity[]' style='width:60px; font-size: 1.3rem; border: none;' value="69" readonly></td>
+							</tr>
+			<?php					
+				}
+			?>
+													
 							<tr>
 							<div id="halls">
 								
