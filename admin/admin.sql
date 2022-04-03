@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2022 at 04:46 AM
+-- Generation Time: Apr 03, 2022 at 09:00 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -122,7 +122,8 @@ CREATE TABLE `member` (
 
 INSERT INTO `member` (`member_id`, `m_card`, `m_rewards`, `m_name`, `m_email`, `m_password`, `m_dob`, `m_gender`, `m_number`, `m_address`, `m_picture`, `m_points`) VALUES
 (6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', '1233', '2000-10-07', 'Select Gender', '018-2017978', 'Seremban', NULL, '2000'),
-(7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Female', '012-3456789', 'Penang', NULL, '5000');
+(7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Female', '012-3456789', 'Penang', NULL, '5000'),
+(8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-01-01', 'Male', '010-4545455', 'Selangor', NULL, '4000');
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`, `movie_date`, `movie_rating`, `movie_trailer`, `movie_desc`, `movie_case`) VALUES
-(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '126', '2022-05-04', 9, 'https://www.youtube.com/embed/WzlQ2N6qqg', '																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.														', 'Upcoming'),
+(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '126', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																												', 'Upcoming'),
 (8, 'jujutsuKaisen.jpg', 'Jujutsu Kaisen 0', '105', '2021-12-24', 8, 'https://www.youtube.com/embed/UPRqnFnnrr8', 'Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.', 'Released'),
 (9, 'Batman.jpg', 'The Batman', '176', '2022-03-04', 8, 'https://www.youtube.com/embed/mqqft2x_Aa4', 'Batman ventures into Gotham City\'s underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator\'s plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis.', 'Released');
 
@@ -172,7 +173,8 @@ CREATE TABLE `screening` (
 --
 
 INSERT INTO `screening` (`screening_id`, `screen_id`, `movie_id`, `branch_id`, `hall_id`, `screening_date`, `screening_time`) VALUES
-(11, '1', 9, 39, 1, '2022-04-02', '21:00');
+(12, '1', 8, 39, 1, '2022-04-04', '2pm'),
+(13, '2', 9, 49, 37, '2022-04-04', '9pm');
 
 -- --------------------------------------------------------
 
@@ -213,7 +215,8 @@ CREATE TABLE `transaction` (
 
 INSERT INTO `transaction` (`transaction_id`, `ticket_id`, `screening_id`, `member_id`, `food_id`, `transaction_date`, `transaction_time`, `booking_price`, `payment_type`, `total_payment`, `status`) VALUES
 (5, NULL, NULL, 0, NULL, '2022-04-02', '9:57', '16', 'Mastercard', '20', 'Successful'),
-(6, NULL, NULL, 0, NULL, '2022-04-01', '10:05', '48', 'Bank Transfer', '50', 'Successful');
+(6, NULL, NULL, 0, NULL, '2022-04-01', '10:05', '48', 'Bank Transfer', '50', 'Successful'),
+(7, NULL, NULL, 0, NULL, '2022-04-03', '23:00', '25', 'Bank Transfer', '30', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -238,7 +241,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `gender`, `dob`) VALUES
 (1, 'Assignment', 'Assignment', 'test', 'test@test.com', '1234', 'male', '1997-05-06'),
-(2, 'claire', 'C', 'Claire', 'clair@gmail.com', 'claire', 'female', '2000-03-11');
+(2, 'claire', 'C', 'Claire', 'clair@gmail.com', '123', 'female', '2000-03-11');
 
 --
 -- Indexes for dumped tables
@@ -318,7 +321,7 @@ ALTER TABLE `hall`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `movie`
@@ -330,7 +333,7 @@ ALTER TABLE `movie`
 -- AUTO_INCREMENT for table `screening`
 --
 ALTER TABLE `screening`
-  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `seat`
@@ -342,7 +345,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

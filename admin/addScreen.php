@@ -35,6 +35,29 @@ if(isset($_POST['add_screen'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+$(document).ready(function(){
+    $('#branch_id').on('change', function(){
+        var branchID = $(this).val();
+     //   alert(branchID);
+              
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'branch_id='+branchID,
+                success:function(html){
+                    $('#hall_id').html(html);
+                   
+                }
+            }); 
+        
+    });
+
+});
+
+
+</script>
 	</head>
 	<body>
 		<div class="navbar">
@@ -93,13 +116,13 @@ if(isset($_POST['add_screen'])){
 								</select>
 							</li>
 							<li>
-								<select style="width:750px; font-size: 1.3rem; border: none;" name="branch_id">
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="branch_id" id="branch_id">
 									<option >Select Branch</option>
 									<?php
 										while($branch = mysqli_fetch_assoc($fetch_branches)){
 									?>
 
-										<option value="<?php echo $branch['br_id'];?>"><?php echo $branch['branch_name'];?></option>
+										<option value="<?php echo $branch['br_id'];?>" ><?php echo $branch['branch_name'];?></option>
 
 									<?php
 										}
@@ -107,18 +130,10 @@ if(isset($_POST['add_screen'])){
 									
 								</select>
 							</li>
+
 							<li>
-								<select style="width:750px; font-size: 1.3rem; border: none;" name="hall_id">
-									<option value="0">Select Hall</option>
-									<?php
-										while($hall = mysqli_fetch_assoc($fetch_halls)){
-									?>
-
-										<option value="<?php echo $hall['hall_id'];?>"><?php echo $hall['hall_id'];?></option>
-
-									<?php
-										}
-									?>
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="hall_id" id="hall_id">
+									<option value="" >Select Hall</option>
 									
 								</select>
 							</li>

@@ -16,8 +16,13 @@ if (isset($_POST['update_screening'])) {
 	  header('location:screenList.php');
 }
 
+if(isset($_POST['delete_screening'])){
+	mysqli_query($connect, "delete from screening where screening_id = '".$sc_id."' ");
+	header('location:screenList.php');
+}
+
 $fetch_movies = mysqli_query($connect,"select * from movie");
-$fetch_branches = mysqli_query($connect,"select * from branch");
+$fetch_branches = mysqli_query($connect,"select * from branch GROUP BY branch_name");
 $fetch_halls = mysqli_query($connect,"select * from hall");
 
 
@@ -46,6 +51,27 @@ a {
     text-decoration: none;
 }
 		</style>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+$(document).ready(function(){
+    $('#branch_id').on('change', function(){
+        var branchID = $(this).val();
+       // alert(branchID);
+              
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'branchEdit_id='+branchID,
+                success:function(html){
+                    $('#hall_id').html(html);
+                   
+                }
+            }); 
+        
+    });
+
+});
+</script>
 	</head>
 	<body>
 		<div class="navbar">
@@ -72,7 +98,7 @@ a {
 			<form method="post" action="#">
 			<div class="content">
 				<div class="button-bar-screen">
-					<button class="delete">DELETE</button>
+					<button class="delete" type="submit" name="delete_screening">DELETE</button>
 					<button><a href="addScreen.php">New Screen</a></button>
 					<button type="submit" name="update_screening">Save Changes</button>
 				</div>
@@ -104,7 +130,7 @@ a {
 								</select>
 							</li>
 							<li>
-								<select style="width:750px; font-size: 1.3rem; border: none;" name="branch_id">
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="branch_id" id="branch_id">
 									<option >Select Branch</option>
 									<?php
 										while($branch = mysqli_fetch_assoc($fetch_branches)){
@@ -119,17 +145,14 @@ a {
 								</select>
 							</li>
 							<li>
-								<select style="width:750px; font-size: 1.3rem; border: none;" name="hall_id">
+								<select style="width:750px; font-size: 1.3rem; border: none;" name="hall_id" id="hall_id">
 									<option value="0">Select Hall</option>
 									<?php
-										while($hall = mysqli_fetch_assoc($fetch_halls)){
+										$hall = mysqli_fetch_assoc($fetch_halls);
 									?>
 
-										<option value="<?php echo $hall['hall_id'];?>" <?php if($screening['hall_id'] == $hall['hall_id'] ){ echo "selected"; } ?> ><?php echo $hall['hall_no'];?></option>
+										<option value="<?php echo $screening['hall_id'];?>" selected><?php echo $screening['hall_id'];?></option>
 
-									<?php
-										}
-									?>
 									
 								</select>
 							</li>

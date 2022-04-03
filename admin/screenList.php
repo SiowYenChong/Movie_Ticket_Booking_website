@@ -48,7 +48,7 @@ button.br_ed_btn {
 .button-b {
     float: right;
     text-align: right;
-    margin: 30px 35px 10px 10px;
+    margin: 0px 20px 0px 0px
 }
 .draw-body .content {
 
@@ -96,13 +96,15 @@ button.br_ed_btn {
               while($screening = mysqli_fetch_assoc($fetch_screening)){
                 $movie_det = mysqli_query($connect, "select * from movie where movie_id = '".$screening['movie_id']."' ");
                 $movie = mysqli_fetch_assoc($movie_det);
+                 $branch_det = mysqli_query($connect, "select * from branch where br_id = '".$screening['branch_id']."' ");
+                $branch = mysqli_fetch_assoc($branch_det);
              ?>
 					<div class="box-account">
 						
 						<div class="left">
 							<li>Screening ID: <?php echo $screening['screen_id']; ?></li>
 							<li>Movie: <?php echo $movie['movie_name']; ?></li>
-							<li>Location: <?php echo $screening['branch_id']; ?></li>
+							<li>Location: <?php echo $branch['branch_name']; ?></li>
 							<li>Hall: <?php echo $screening['hall_id']; ?></li>
 							<li>Date: <?php echo $screening['screening_date']; ?></li>
 							<li>Time: <?php echo $screening['screening_time']; ?></li>
