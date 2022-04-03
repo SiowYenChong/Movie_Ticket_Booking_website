@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <?php include 'includes/navigation2.php';?>
+        <?php include 'includes/navigation.php';?>
 	<link rel="stylesheet" href="style/mystyle.css">
   
     </head>
@@ -10,6 +10,13 @@
 
         <div class="midBtn">
             <p class="contactUsTitle">Customer service Hours: 9AM - 5PM</p>
+        </div>
+
+        <div class="searchIssue">
+        <form>
+            <input class="searchIssue" type="text" id="searchIssue" name="searchIssue"><br>
+        
+        </form>
         </div>
 
         <div class="contactUsArea2">
@@ -24,11 +31,10 @@
             </a>
         </td>
         <td>
-            <a href="https://wa.me/60182017978" target="_blank">
+            <a href="">
        <div class="hotlineNumber">
            <li class="contactUs2">Hotline Number</p>
        </div>
-
     </a>
        </td>
             <tr>

@@ -41,7 +41,7 @@
 </nav>
 <h1 style="color:rgb(233,29,66);position:relative;text-align:center;">Reset Your Password</h1>
 
-	<form action="httpbin.org./post" method="post">
+	<form action="resetPassword.php" method="post" >
 				<table>
 
 				<tr>
@@ -50,14 +50,14 @@
 
 				</td>
 					<td>
-					<input type="email"  id="login"  name=email >
+					<input type="email"  id="login"  name='email' required>
 					</td>
 
 				</tr>
 
 
 				</table>
-	<button type="submit" style=" background-color: #E91D42; 
+	<input type="submit"  name=Submit value="Submit" style=" background-color: #E91D42; 
   border: none;
   color: white;
   padding: 20px 32px;
@@ -69,14 +69,55 @@
   cursor: pointer;
   position:relative;
   left:450px;
-   font-size:30px;	">Submit </button>
+   font-size:30px;	">
 
 </form>
+
+
 <br><br><br>
+
+
 <?php include "includes/footer.php" ;?>
 
-</body>
 
+<?php
+
+	// Check If form submitted, insert form data into announcement table.
+	if(isset($_POST['Submit'])) {
+		//Obtain data posted from the form
+		$email = $_POST['email'];
+	
+		// include database connection file
+		$connect = mysqli_connect("localhost", "root", "", "admin") or die('DB setting not valid...!');
+        $rs = mysqli_query($connect, "select * from member where m_email ='$email' ");
+        $row = mysqli_fetch_assoc($rs);
+	
+
+	 if ($row){
+       
+       $result = mysqli_query($connect, "UPDATE member SET m_password='abcd1234' WHERE m_email='$email'");
+            echo '<script language="javascript">';
+			echo 'alert("The new password is abcd1234");';
+			echo 'window.location = "login.php"';
+			echo '</script>';
+        }
+        else{
+			 echo '<script language="javascript">';
+			echo 'alert("The email is not registered");';
+			echo 'window.location = "resetPassword.php"';
+			echo '</script>';
+			
+        }    
+	
+	
+		
+	}
+	?>
+
+
+
+
+</body>
 
 
 

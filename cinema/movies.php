@@ -4,42 +4,53 @@
 	<title>Movies</title>
 
 <link rel=stylesheet href="style/mystyle.css">
-<style>
-
- body{
-	background-color:rgb(33,33,33);  
-	  }
-
-
-
-</style>
-
 
 </head>
 
-
+<?php include('includes/navigation.php');?>
 <body class=nav >
-<nav style="background-color:rgb(33,33,33);" >
-	<a href="index.php">
-		<img src="image/logo.png" class="logo" alt="logo">
-	</a>	
-	<div style="position:relative;top:-60px;left:100px">
+
+
+<div style="position:relative;top:-48px;left:85px">
 <ul class=nav >
 
-<li class=nav  ><a  class=nav href="#" style="color:red;"> Movies </a></li>
-<li class=nav  ><a class=nav href="locations.php"> Locations </a></li>
+<li class=nav  ><a  class=nav href="movies.php" style="color:red;"> NOW SHOWING </a></li>
+<li class=nav  ><a class=nav href="comingsoon.php"> COMING SOON </a></li>
 
 
 
 </ul>
 
-</nav>
-
-
-
 
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left:200px;">
+
+<ul class="nav"  >
+<li  class="nav" >
+<a href="movieInfo1.php">
+<img src="image/p1.jpg" alt="p1" style="width:200px; height:200px;">
+  <figcaption>DOCTOR STRANGE</figcaption>
+
+
+</a>
+</li>
+
+<li  class=nav >
+<a href="movieInfo2.php">
+ <img src="image/p2.jpg" alt="p2" style="width:200px; height:200px;">
+
+ <figcaption>JUJUTSU KAISEN 0</figcaption>
+ 
+
+ </a>
+  </li>
+ </ul>
+
+ </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 <?php include "includes/footer.php" ;?>
 
 </body>

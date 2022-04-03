@@ -30,15 +30,11 @@
             </tr>
             <tr>
                 <td class="bodyy">
-                    <a href = "https://shorturl.at/mDEN3" target = "_blank">
                     <li class="knowledgeBasedPageData">How To</li>
-                    </a>
                 </td>
                 <td class="spacing2"></td>
                 <td class="bodyy">
-                <a href = "https://shorturl.at/zJM03" target = "_blank">
                     <li class="knowledgeBasedPageData">Terms and Conditions</li>
-                    </a>
                 </td>
             </tr>
         </table>
@@ -59,15 +55,12 @@
             </tr>
             <tr>
                 <td class="bodyy">
-                <a href = "https://shorturl.at/mDFO0" target = "_blank">
+                    
                     <li class="knowledgeBasedPageData">Anti-Corruption</li>
-                </a>
                 </td>
                 <td class="spacing2"></td>
                 <td class="bodyy">
-                <a href = "https://shorturl.at/yAEN8" target = "_blank">
                     <li class="knowledgeBasedPageData">Seat Separation</li>
-                </a>    
                 </td>
             </tr>
         </table>
