@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <h1>hi</hi>
     <h1 style=text-align:center>Purchase Confirmation</h1>
     <hr style="width: 300px; margin:auto">
     <table id="purchaseTable">
