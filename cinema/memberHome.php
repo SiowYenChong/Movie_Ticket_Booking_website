@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <h1 style=text-align:center>Membership Card</h1>
     <hr style="width: 300px; margin:auto">
     <br>
@@ -90,12 +91,15 @@
 <hr style="width: 300px; margin:auto">
 <h3 style=text-align:center>Click To Claim a Rewards</h3>
 
+
+
 <table style="width:100vw;" id="Rewards">
   <tr>
     <td style="border-radius:50%">
       <div class="column">
-	  
-        <img src="image/reward.png" style="width:200px;">
+
+		<input type ="image" src="image/reward.png" name="submit" alt ="submit " style="width:200px"/>
+        
 		<span class="column">3000 popcorns</span>
       </div>
     
@@ -103,8 +107,8 @@
 
     <td style="border-radius:50%">
       <div class="column">
-	  
-        <img src="image/rewardsecond.png" style="width:200px;">
+	  <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
+    
 		<span class="column">5000 popcorns</span>
       </div>
       
@@ -112,7 +116,7 @@
 	  
 	<td>
       <div class="column">
-        <img src="image/rewardthird.png" style="width:200px;">
+        <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
 		<span class="column">15000 popcorns</span>
       </div>
       
@@ -120,7 +124,7 @@
 
     <td>
       <div class="column">
-        <img src="image/reward3.png" style="width:200px;">
+        <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
 		<span class="column">25000 popcorns</span>
       </div>
     
