@@ -5,6 +5,16 @@
 <?php include('includes/navigation.php'); ?>
 <head>
     <title>Home - Member</title>
+	<style>
+        .column {
+            margin: 20%;
+            position: relative;
+        }
+		#divpic {height :350px;width :350px;text-align:center;}
+		.column{font-size;1.5em}
+  
+       
+    </style>
 </head>
 
 <body>
@@ -76,38 +86,48 @@
         </tbody>
     </table>
 
-    <h1 style=text-align:center>Rewards</h1>
-    <hr style="width: 300px; margin:auto">
-    <table id="homeMemberTable">
-        <thead id="homeMemberHead">
-            <tr id="memberRow">
-                <th>Reward</th>
-                <th>Expiry Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr id="memberRow">
-                <td>Free 1 Big Combo2</td>
-                <td>31 June 2022</td>
-            </tr>
-            <tr id="memberRow">
-                <td>Free 1 Big Combo2</td>
-                <td>31 June 2022</td>
-            </tr>
-            <tr id="memberRow">
-                <td>Free 1 Big Combo2</td>
-                <td>31 June 2022</td>
-            </tr>
-            <tr id="memberRow">
-                <td>Free 1 Big Combo2</td>
-                <td>31 June 2022</td>
-            </tr>
-            <tr id="memberRow">
-                <td>Free 1 Big Combo2</td>
-                <td>31 June 2022</td>
-            </tr>
-        </tbody>
-    </table>
+   <h1 style=text-align:center>Rewards</h1>
+<hr style="width: 300px; margin:auto">
+<h3 style=text-align:center>Click To Claim a Rewards</h3>
+
+<table style="width:100vw;" id="Rewards">
+  <tr>
+    <td style="border-radius:50%">
+      <div class="column">
+	  
+        <img src="image/reward.png" style="width:200px;">
+		<span class="column">3000 popcorns</span>
+      </div>
+    
+    </td>
+
+    <td style="border-radius:50%">
+      <div class="column">
+	  
+        <img src="image/rewardsecond.png" style="width:200px;">
+		<span class="column">5000 popcorns</span>
+      </div>
+      
+    </td>
+	  
+	<td>
+      <div class="column">
+        <img src="image/rewardthird.png" style="width:200px;">
+		<span class="column">15000 popcorns</span>
+      </div>
+      
+    </td>
+
+    <td>
+      <div class="column">
+        <img src="image/reward3.png" style="width:200px;">
+		<span class="column">25000 popcorns</span>
+      </div>
+    
+    </td>
+
+  </tr>
+</table>
 </body>
 <?php include('includes/footer.php'); ?>	
 </html>
