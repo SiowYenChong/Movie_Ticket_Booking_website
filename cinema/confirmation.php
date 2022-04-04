@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
-<?php include('includes/navigation.php'); ?>
+<?php include('includes/navigation2.php'); ?>
 
 <head>
     <title>Purchase Confirmation</title>
@@ -18,13 +18,13 @@
                     <table id="purchaseTable">
                         <tr>
                             <td>Adult</td>
-                            <td>'number selector'</td>
+                            <td>Quantity</td>
                             <td>Total:</td>
                             <td>20.00</td>
                         </tr>
                         <tr>
                             <td> Child</td>
-                            <td>'number selector'</td>
+                            <td>Quantity</td>
                             <td>Total:</td>
                             <td>10.00</td>
                         </tr>
@@ -45,21 +45,21 @@
         <tr>
             <td><img src="image/popcorn.jpg" style="width:200px;"></td>
             <td>Popcorn</td>
-            <td>'number selector'</td>
+            <td>Quantity</td>
             <td>Total:</td>
             <td>11.00</td>
         </tr>
         <tr>
             <td><img src="image/hotdog.webp" style="width:200px;"></td>
             <td>Hotdog</td>
-            <td>'number selector'</td>
+            <td>Quantity</td>
             <td>Total:</td>
             <td>8.00</td>
         </tr>
         <tr>
             <td><img src="image/coke.jpg" style="width:200px;"></td>
             <td>Coke</td>
-            <td>'number selector'</td>
+            <td>Quantity</td>
             <td>Total:</td>
             <td>5.00</td>
         </tr>
@@ -81,8 +81,12 @@
     </table>
     <hr style="width: 95%; margin:auto">
 
-    <input type="submit" value="Cancel"  id="cancel">
-    <input type="submit" value="PAYMENT" id="next">
+    <a href="index.php">
+            <input type="button" id="cancel" value="Cancel" />
+        </a>
+        <a href="payment.php">
+            <button type="submit" form="form1" value="Submit"  id="next" >PAYMENT</button>
+        </a>
     <br><br><br>
 </body>
 <?php include('includes/footer.php'); ?>

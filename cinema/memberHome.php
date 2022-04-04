@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<link rel='stylesheet' href='style/mystyle.css'>
+<link rel='stylesheet' href='style/myStyle.css'>
 
-<?php include('includes/navigation.php'); ?>
+<?php include('includes/navigation2.php'); ?>
 <head>
     <title>Home - Member</title>
 	<style>
@@ -11,7 +11,7 @@
             position: relative;
         }
 		#divpic {height :350px;width :350px;text-align:center;}
-		.column{font-size;1.5em}
+		.column{font-size: 1.5em}
   
        
     </style>

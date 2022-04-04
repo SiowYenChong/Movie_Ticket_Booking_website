@@ -68,8 +68,13 @@ h1 {
 #purchaseTable {
   margin-left: auto;
   margin-right: auto;
+  padding-left:0cm;
   width: 100%;
   text-align: center;
+}
+
+#quantity{
+  width: 50px;
 }
 
 #cancel {
@@ -95,10 +100,19 @@ h1 {
 }
 
 #paymentTable {
-  margin-left: 100px;
+  margin-left: auto;
   margin-right: auto;
 }
 
+.center{
+  margin-left: 700px;
+  margin-right: auto;
+}
+
+.left{
+  text-align: right;
+  padding-right: 50px;
+}
 /*############MEMBER KEAN###########///////////////////////////////////////////////////////////*/
 
 body {
@@ -127,10 +141,37 @@ body {
 a {
   color: white;
 }
-img {
-  border: 1px solid #ddd;
+.movieBackground img {
   border-radius: 4px;
   padding: 5px;
+  width: 150px;
+  height: 200px;
+}
+
+.movieDetails, .movieDetailsTrailer{
+  background-color: #3f3f3f;
+  width: 1300px;
+  height: 270px;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.movieDetails table, .movieDetailsTrailer table{
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.movieDetailsTrailer{
+  height: 400px;
+}
+.movieDetails textarea{
+  height: 150px;
+}
+
+.movieDetails img{
+  margin-left: 750px;
+  margin-top: 30px;
   width: 150px;
   height: 200px;
 }
@@ -173,16 +214,11 @@ img.Rating {
   left: 780px;
 }
 
-.articlesArea {
-  width: 1600px;
-  margin: auto;
-  background-color: #292828;
-  width: 1200px;
-}
 
 .contactUsArea {
   padding-bottom: 30px;
-  width: 1430px;
+  padding-right: 30px;
+  width: 1530px;
   margin: auto;
   background-color: #636363;
   height: 800px;
@@ -190,10 +226,14 @@ img.Rating {
 
 .contactUsAreaSubmit {
   width: 1600px;
-  margin: auto;
+  margin: auto; 
   text-align: right;
 }
 
+.contactUsArea li{
+  list-style: none;
+  font-size: 30px;
+}
 p.contactUsTitle {
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
@@ -271,8 +311,7 @@ input.searchIssue,
 input.ContactUs,
 select.category,
 input.subject,
-textarea,
-.articlesSelection {
+textarea{
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
@@ -284,22 +323,9 @@ textarea,
 
 textarea {
   margin-top: 20px;
-  height: 260px;
-}
-.articlesSelection {
-  font-size: 80px;
-  margin-top: 30px;
-  height: 60px;
-  width: 1200px;
-  transition: transform 0.2s; /* Animation */
-  background-color: #363636;
-  color: red;
+  height: 240px;
 }
 
-.articlesSelection:hover {
-  cursor: pointer;
-  transform: scale(1.02);
-}
 
 select.category,
 input.subject {
@@ -350,9 +376,6 @@ input.submitt:hover {
   cursor: pointer;
   background-color: rgb(196, 1, 1);
 }
-.searchIssue {
-  text-align: center;
-}
 
 td.head {
   background-color: red;
@@ -382,32 +405,6 @@ li.knowledgeBasedPage {
 
 /*############################	NAVIGATION	##############*/
 
-a.highlight{
-	color:red;
-	
-}
-a.normal{
-	color:white;
-	
-}
-ul.nav2 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0px;
-  overflow: hidden;
-  background-color: #212121;
-  position: absolute;
-  width: auto;
-  top: 720px;
-  left: 50px;
-}
-li.nav2 {
-  border-left: 1px solid #bbb;
-  display: incline;
-  padding: 0px 10px;
-  text-align: center;
-  float: left;
-}
 body.nav {
   background-color: rgb(41, 40, 40);
   background-attachment: fixed;
@@ -415,7 +412,7 @@ body.nav {
   position: relative;
   overflow: scroll;
 }
-ul.nav {
+ul.nav, ul.nav1 {
   list-style-type: none;
   margin: 0;
   padding: 0px;
@@ -424,13 +421,15 @@ ul.nav {
   position: absolute;
   width: auto;
   top: 50px;
-  left: 500px;
+  left: 350px;
 }
 
-
+ul.nav1{
+  left: 900px;
+}
 li.nav {
   border-left: 1px solid #bbb;
-  display: incline;
+  display: inline;
   padding: 0px 10px;
   text-align: center;
   float: left;
@@ -439,7 +438,7 @@ li a.nav {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 100px;
+  padding: 14px 50px;
   text-decoration: none;
   font-size: 20px;
 }
