@@ -10,7 +10,6 @@
 <body>
     <h1 style=text-align:center>Payment</h1>
     <hr style="width: 300px; margin:auto">
-    <br>
 
     <form>
         <div class="center">
@@ -19,7 +18,7 @@
                     <td><input type="radio" value="visa" name="payment"></td>
                     <td><img src="image/visa.png" style="width:200px;"></td>
                     <td>VISA Card</td>
-                </tr>
+                </tr>  
                 <tr>
                     <td><input type="radio" value="master" name="payment"></td>
                     <td><img src="image/mastercard.png" style="width:200px;"></td>
@@ -57,7 +56,7 @@
         <a href="seatSelection.php">
             <button type="submit" form="form1" value="Submit" id="next">MAKE PAYMENT</button>
         </a>
-        <!--fake prompt of payment done-->
+        <!--fake prompt of payment done, link to upcoming movie in transaction history-->
     </form>
 
     <br><br><br>

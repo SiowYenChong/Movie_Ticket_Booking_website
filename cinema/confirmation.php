@@ -17,18 +17,20 @@
                 <td>
                     <table id="purchaseTable">
                         <tr>
-                            <td>Adult</td>
+                            <td>Adult Seat</td>
                             <td>Quantity</td>
                             <td>Total:</td>
                             <td>20.00</td>
                         </tr>
                         <tr>
-                            <td> Child</td>
+                            <td>Child Seat</td>
                             <td>Quantity</td>
                             <td>Total:</td>
                             <td>10.00</td>
                         </tr>
                         <tr>
+                            <td></td>
+                            <td></td>
                             <td>Sub Total:</td>
                             <td>30.00</td>
                         </tr>
@@ -64,6 +66,9 @@
             <td>5.00</td>
         </tr>
         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>Sub Total:</td>
             <td>27.00</td>
         </tr>
@@ -72,21 +77,17 @@
 
     <table id="purchaseTable">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Final Total(RM):</td>
-            <td>57.00</td>
+            <td class="left">Final Total(RM): 57.00</td>
         </tr>
     </table>
     <hr style="width: 95%; margin:auto">
 
     <a href="index.php">
-            <input type="button" id="cancel" value="Cancel" />
-        </a>
-        <a href="payment.php">
-            <button type="submit" form="form1" value="Submit"  id="next" >PAYMENT</button>
-        </a>
+        <input type="button" id="cancel" value="Cancel" />
+    </a>
+    <a href="payment.php">
+        <button type="submit" form="form1" value="Submit" id="next">PAYMENT</button>
+    </a>
     <br><br><br>
 </body>
 <?php include('includes/footer.php'); ?>

@@ -12,13 +12,6 @@
             <p class="contactUsTitle">Customer service Hours: 9AM - 5PM</p>
         </div>
 
-        <div class="searchIssue">
-        <form>
-            <input class="searchIssue" type="text" id="searchIssue" name="searchIssue"><br>
-        
-        </form>
-        </div>
-
         <div class="contactUsArea2">
         <table>
         <tr>
@@ -31,10 +24,11 @@
             </a>
         </td>
         <td>
-            <a href="">
+            <a href="https://wa.me/60182017978" target="_blank">
        <div class="hotlineNumber">
            <li class="contactUs2">Hotline Number</p>
        </div>
+
     </a>
        </td>
             <tr>

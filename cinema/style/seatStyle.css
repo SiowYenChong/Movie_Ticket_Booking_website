@@ -1,0 +1,79 @@
+.content .main .screen {
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+.main .screen-box {
+    padding: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .screen-box .movie-screen {
+    width: 28vw;
+    height: 22vw;
+    background-color: rgb(65, 63, 63);
+    border-radius: 2px;
+    text-align: center;
+}
+
+.main .screen-box .movie-screen .movie {
+    height: 25px;
+    width: 26vw;
+    margin: 20px 20px 0 20px;
+    border-radius: 50%;
+    box-shadow: 0px -3px 0px 1px #ccc;
+    color: #ccc;
+}
+
+.main .screen-box .movie-screen .seats {
+    margin-top: 2rem;
+}
+
+.main .screen-box .movie-screen .seats .row {
+    display: flex;
+    justify-content: center;
+}
+
+.main .screen-box .movie-screen .seats .row .seat {
+    background-color: #c8c8ce;
+    height: 12px;
+    width: 15px;
+    margin: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.main .screen-box .movie-screen .seats .row .number {
+    margin: 5px;
+    color: #6e6e70;
+    font-size: 0.8rem;
+}
+
+.main .screen-box .movie-screen .seats .row .seat.selected {
+    background-color: #ff9900;
+}
+  
+.main .screen-box .movie-screen .seats .row .seat.occupied {
+    background-color: rgb(128, 126, 126);
+}
+  
+.main .screen-box .scremovie-screenen .seats .row .seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+  
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.main .screen-box .movie-screen .seats .path {
+    min-height: 2rem;
+}
