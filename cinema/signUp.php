@@ -147,7 +147,9 @@
 		// Insert announcement data into table
 		$result = mysqli_query($mysqli, "INSERT INTO member(m_name,m_email,m_password,m_dob,m_gender,m_number,m_address) 
 		VALUES('$name','$email','$password','$dob','$gender','$mobileNumber','$address')");
-		
+		    echo '<script language="javascript">';
+			echo 'window.location = "login.php"';
+			echo '</script>';
 
 	}
 	?>
