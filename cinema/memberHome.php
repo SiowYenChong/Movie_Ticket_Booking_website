@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html>
-<link rel='stylesheet' href='style/myStyle.css'>
+<html lang="en">
+<link rel='stylesheet' href='style/mystyle.css'>
 
-<?php include('includes/navigation2.php'); ?>
+<?php include('includes/navigation.php'); ?>
 <head>
     <title>Home - Member</title>
+	<meta charset ="UTF-8">
+	<meta name=viewport"content ="width=device-width,initial-scale=1.0">
+	
+
 	<style>
         .column {
             margin: 20%;
             position: relative;
         }
-		#divpic {height :350px;width :350px;text-align:center;}
-		.column{font-size: 1.5em}
+	
   
        
     </style>
 </head>
 
 <body>
-
     <h1 style=text-align:center>Membership Card</h1>
     <hr style="width: 300px; margin:auto">
+	<div id="container">
     <br>
     <table id="membershipCard">
         <tr>
@@ -37,7 +40,8 @@
         </tr>
         <tr>
             <td>
-                <div id="pointsText">Available Points:</div> 10000
+                <div id="pointsText">Available Points:</div> 
+				<div id="number">10000</div>
             </td>
         </tr>
     </table>
@@ -96,20 +100,23 @@
 <table style="width:100vw;" id="Rewards">
   <tr>
     <td style="border-radius:50%">
+	
       <div class="column">
-
-		<input type ="image" src="image/reward.png" name="submit" alt ="submit " style="width:200px"/>
+		<div id="container">
+		<button id="decrement" ><img src="image/re123.png" style="width:200px"/></button>
         
-		<span class="column" style = "position:relative; right:5px;text-align:center; font-size:20px;">3000 points</span>
+		<span class="column">3000 points</span>
+		
+    
       </div>
     
     </td>
-
-    <td style="border-radius:50%">
+	
+	
+     <td>
       <div class="column">
-	  <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
-    
-		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">5000 points</span>
+        <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
+		<span class="column">15000 points</span>
       </div>
       
     </td>
@@ -117,7 +124,7 @@
 	<td>
       <div class="column">
         <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">15000 points</span>
+		<span class="column">15000 points</span>
       </div>
       
     </td>
@@ -125,13 +132,14 @@
     <td>
       <div class="column">
         <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">25000 points</span>
+		<span class="column">25000 points</span>
       </div>
     
     </td>
 
   </tr>
 </table>
+<script src="main.js"></script>
 </body>
 <?php include('includes/footer.php'); ?>	
 </html>
