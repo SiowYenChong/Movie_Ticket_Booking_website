@@ -103,7 +103,7 @@
 	
       <div class="column">
 		<div id="container">
-		<button id="decrement" ><img src="image/re123.png" style="width:200px"/></button>
+		<button id="decrement" ><img src="image/reward.png" style="width:200px"/></button>
         
 		<span class="column">3000 points</span>
 		
