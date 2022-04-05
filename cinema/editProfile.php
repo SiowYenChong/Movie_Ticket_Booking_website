@@ -6,71 +6,102 @@
 <head>
 	<title>Edit Profile</title>
 </head>
+<?php
+  $db_host = 'localhost';
+  $db_user = 'root';
+  $db_password = '';
+  $db_db = 'movie';
+  $db_port = 8889;
 
+  $mysqli = new mysqli(
+    $db_host,
+    $db_user,
+    $db_password,
+    $db_db
+  );
+	
+  if ($mysqli->connect_error) {
+    echo 'Error: '.$mysqli->connect_errno;
+    echo '<br>';
+    echo 'Error: '.$mysqli->connect_error;
+    exit();
+  }
+
+  echo 'Success: A proper connection to MySQL was made.';
+  echo '<br>';
+  echo 'Host information: '.$mysqli->host_info;
+  echo '<br>';
+  echo 'Protocol version: '.$mysqli->protocol_version;
+  echo '<br>';
+
+  $mysqli->close();
+?>
+    
+    
+    <?php 
+  $db_host = 'localhost';
+  $db_user = 'root';
+  $db_password = '';
+  $db_db = 'movie';
+  $db_port = 8889;
+  
+  // Create connection
+$conn = new mysqli ($db_host, $db_user, $db_password, $db_db);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM profile ORDER BY id ASC";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+    echo "id: " . $row["id"]. " ";
+	
+	echo "<br>";
+	}
+  
+	
+} else {
+  echo "0 results";
+}
+?>
+
+	<a href="update">Update Profile</a><br>
+	
+  <?php
+
+
+$conn->close();
+?>
 <body>
-	<h1 style=text-align:center>My Profile</h1>
-	<hr style="width: 300px; margin:auto">
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "movie";
 
-	<form action="???.php">
-		<table id="profileTable">
-			<tr>
-				<td id="inputField">
-					<p>
-						<label for="name">Name:</label><br>
-						<input type="text" id="name" name="name" value="John Doe"><br>
-					</p>
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-					<p>
-						<label for="gender">Name:</label><br>
-						<input type="radio" id="gender" name="gender" value="male" checked>
-						<label for="male">Male</label>
-						<input type="radio" id="gender" name="gender" value="female">
-						<label for="female">Female</label>
-					</p>
+$sql = "SELECT * FROM profile ORDER BY id ASC";
+$result = mysqli_query($conn, $sql);
 
-					<p>
-						<label for="address">Address:</label><br>
-						<input type="text" id="address" name="addressline1" value="12, Jalan 34"><br>
-						<input type="text" id="address" name="addressline2" value="Taman Bunga, Semenyih"><br>
-						<input type="text" id=address name="postcode" pattern="[0-9]{5}" maxlength="5" value="32000">
-						<select id="address" name="state">
-							<option value="johor">Johor</option>
-							<option value="kedah">Kedah</option>
-							<option value="kelantan">Kelantan</option>
-							<option value="malacca">Malacca</option>
-							<option value="negerisembilan">Negeri Sembilan</option>
-							<option value="pahang">Pahang</option>
-							<option value="penang">Penang</option>
-							<option value="perak">Perak</option>
-							<option value="perlis">Perlis</option>
-							<option value="sabah">Sabah</option>
-							<option value="sarawak">Sarawak</option>
-							<option value="selangor" selected>Selangor</option>
-							<option value="terengganu">Terengganu</option>
-						</select>
-					</p>
+  ?>
 
-					<p>
-						<label for="email">Email:</label><br>
-						<input type="email" id="email" name="email" value="john@example.com"><br>
-					</p>
-
-					<p>
-						<label for="phone">Mobile Number:</label><br>
-						<input type="tel" id="phone" name="phone" value="0123456789">
-					</p>
-
-					<p>
-						<label for="birthday">Date of Birth:</label>
-						<input type="date" id="birthday" name="birthday" value="1989-05-23">
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td><br><input type="submit" style = "position: relative; left: 150px;" value="Save Changes"></td>
-			</tr>
-		</table>
-	</form>
+	
+	
+  
+  <?php
+$conn->close();
+?>
+	
 </body>
 <?php include('includes/footer.php'); ?>
 
