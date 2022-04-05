@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2022 at 09:00 PM
+-- Generation Time: Apr 05, 2022 at 08:10 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -241,7 +241,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `gender`, `dob`) VALUES
 (1, 'Assignment', 'Assignment', 'test', 'test@test.com', '1234', 'male', '1997-05-06'),
-(2, 'claire', 'C', 'Claire', 'clair@gmail.com', '123', 'female', '2000-03-11');
+(2, 'claire', 'C', 'Claire', 'clair@gmail.com', '234', 'female', '2000-03-11');
 
 --
 -- Indexes for dumped tables
@@ -321,7 +321,7 @@ ALTER TABLE `hall`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `movie`
