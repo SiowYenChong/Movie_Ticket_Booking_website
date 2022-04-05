@@ -11,43 +11,32 @@ CFTv CINEMAS
 
 <body class=nav>
 
-
-
-
-
 <?php include('includes/navigation.php');?>
-
-
-
-
-
-
-
 
 
 
 <div class="slideshow-container" data-cycle="3500">
 
-<div class="mySlides1 fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="image/p1.jpg" style="width:100%; height:550px;">
- 
-</div>
+	<div class="mySlides1 fade">
+		<div class="numbertext">1 / 3</div>
+		<img src="image/p1.jpg" style="width:100%; height:550px;">
+	
+	</div>
 
-<div class="mySlides1 fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="image/p2.jpg" style="width:100%;height:550px;">
-  <div class="text">Caption Two</div>
-</div>
+	<div class="mySlides1 fade">
+		<div class="numbertext">2 / 3</div>
+		<img src="image/p2.jpg" style="width:100%;height:550px;">
+		<div class="text">Caption Two</div>
+	</div>
 
-<div class="mySlides1 fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="image/p3.jpg" style="width:100%;height:550px;">
-  <div class="text">Caption Three</div>
-</div>
+	<div class="mySlides1 fade">
+		<div class="numbertext">3 / 3</div>
+		<img src="image/p3.jpg" style="width:100%;height:550px;">
+		<div class="text">Caption Three</div>
+	</div>
 
-<a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
-<a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+	<a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+	<a class="next" onclick="plusSlides(1,0)">&#10095;</a>
 
 </div>
 <br>
@@ -73,7 +62,8 @@ CFTv CINEMAS
  
   background-size: cover;
   position: relative;
-  top:-30px;">
+  top:-10px;
+  left: 700px;">
 	
 
 <input class="coming_soon"
@@ -90,39 +80,42 @@ CFTv CINEMAS
  
   background-size: cover;
   position: relative;
-  top:-30px">
-	   
+  top:-10px;
+  left: 700px;"
+  >
+  
 
-<div id="nowshowing-poster">
+<div id="nowshowing-poster" style = "position: relative;top:0px;left: 700px;">
 
 <ul class="nav2"  >
 <li  class="nav2" >
 <a href="movieInfo1.php">
 <img src="image/p1.jpg" alt="p1" style="width:300px; height:250px;">
   <figcaption>DOCTOR STRANGE</figcaption>
-
-</li>
 </a>
+</li>
 
 
-<li  class=nav2 >
+<!--
+<li  class=nav2>
 <a href="movieInfo2.php">
  <img src="image/p2.jpg" alt="p2" style="width:300px; height:250px;">
 
  <figcaption>JUJUTSU KAISEN 0</figcaption>
- 
+</a>
  </li>
- </a>
+ -->
+
  </ul>
 
  </div>
  
  
+ <br> <br>
  
  
  
- 
-<div class="branches">
+<div class="branches" style = "position: relative;top:-300px;">
 
 <table>
 <tr>
@@ -132,13 +125,11 @@ CFTv CINEMAS
 <div class="mySlides2 fade">
 
 		<p class="title" id="title" style="	color:white;
-			
 			text-align:center;
 			font-size:40px;
 			position:relative;
-			top:50px;"> <b><u>Branches</u></b> </p>
+			top:50px;left: 20px;"> <b><u>Branches</u></b> </p>
 		<div  style="	color:white;
-			
 			font-size:20px;
 			position:relative;
 			left:500px;
@@ -163,7 +154,8 @@ CFTv CINEMAS
 			
 			text-align:center;
 			font-size:40px;position:relative;
-			top:50px;"> <b><u>Branches</u></b> </p>
+			top:50px;
+			left:20px;"> <b><u>Branches</u></b> </p>
 		<div  style="	color:white;
 			
 			font-size:20px;
@@ -191,7 +183,7 @@ CFTv CINEMAS
 			
 			text-align:center;
 			font-size:40px;position:relative;
-			top:50px;"> <b><u>Branches</b></u> </p>
+			top:50px;left:20px;"> <b><u>Branches</b></u> </p>
 		<div  style="	color:white;
 			
 			font-size:20px;
@@ -213,7 +205,7 @@ CFTv CINEMAS
 </div>
 </div>
 <a class="prev" onclick="plusSlides(-1,1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1,1)">&#10095;</a>
+<a" class="next" onclick="plusSlides(1,1)">&#10095;</a>
 
 </div>
 

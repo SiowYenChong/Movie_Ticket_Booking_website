@@ -53,7 +53,7 @@
         <a href="index.php">
             <input type="button" id="cancel" value="Cancel" />
         </a>
-        <a href="seatSelection.php">
+        <a href="TransactionUpcoming.php">
             <button type="submit" form="form1" value="Submit" id="next">MAKE PAYMENT</button>
         </a>
         <!--fake prompt of payment done, link to upcoming movie in transaction history-->

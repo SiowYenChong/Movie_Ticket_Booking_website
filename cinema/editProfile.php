@@ -67,7 +67,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><br><input type="submit" value="Save Changes"></td>
+				<td><br><input type="submit" style = "position: relative; left: 150px;" value="Save Changes"></td>
 			</tr>
 		</table>
 	</form>

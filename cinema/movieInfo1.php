@@ -49,7 +49,7 @@
 
 <?php include('includes/navigation.php');?>
 <body class=nav >
-<h1> DOCTER STRANGE</h1>
+<h1> DOCTOR STRANGE</h1>
 <iframe width=100% height="460px" src="https://www.youtube.com/embed/Rt_UqUm38BI?autoplay=1&mute=1" >
 </iframe>
 
@@ -61,16 +61,16 @@
 <div class="dropdown">
   <button class="dropbtn">KLCC</button>
   <div class="dropdown-content">
-    <a href="#">1.15pm</a>
-    <a href="#">3.15pm</a>
-    <a href="#">4.15pm</a>
+    <a href="purchase.php">1.15pm</a>
+    <a href="purchase.php">3.15pm</a>
+    <a href="purchase.php">4.15pm</a>
   </div>
 </div>
 
 <div class="dropdown">
   <button class="dropbtn">BUTTERWORTH</button>
   <div class="dropdown-content">
-   <a href="#">1.15pm</a>
+   <a href="purchase.php">1.15pm</a>
  
 
   </div>
@@ -78,8 +78,8 @@
 <div class="dropdown">
   <button class="dropbtn">KUCHING</button>
   <div class="dropdown-content">
-   <a href="#">1.15pm</a>
-    <a href="#">3.15pm</a>
+   <a href="purchase.php">1.15pm</a>
+    <a href="purchase.php">3.15pm</a>
  
 
   </div>  

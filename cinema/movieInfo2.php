@@ -52,22 +52,29 @@
 <h2> Publish Date::</h2>
 <h2> Rating:</h2>
 
+
 <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
+  <button class="dropbtn">KLCC</button>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+    <a href="purchase.php">1.15pm</a>
+    <a href="purchase.php">3.15pm</a>
+    <a href="purchase.php">4.15pm</a>
   </div>
 </div>
 
 <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
+  <button class="dropbtn">BUTTERWORTH</button>
   <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+   <a href="purchase.php">1.15pm</a>
   </div>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">KUCHING</button>
+  <div class="dropdown-content">
+   <a href="purchase.php">1.15pm</a>
+    <a href="purchase.php">3.15pm</a>
+  </div>  
 </div>
 
 

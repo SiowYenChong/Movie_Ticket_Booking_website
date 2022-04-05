@@ -11,7 +11,7 @@
 <body class=nav >
 
 
-<div style="position:relative;top:-48px;left:85px">
+<div style="position:relative;top:-48px;left: 450px">
 <ul class=nav >
 
 <li class=nav  ><a  class=nav href="movies.php" style="color:red;"> NOW SHOWING </a></li>
@@ -23,7 +23,7 @@
 
 
 </div>
-<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left:200px;">
+<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left: 450px;">
 
 <ul class="nav"  >
 <li  class="nav" >

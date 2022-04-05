@@ -100,7 +100,7 @@
 
 		<input type ="image" src="image/reward.png" name="submit" alt ="submit " style="width:200px"/>
         
-		<span class="column">3000 points</span>
+		<span class="column" style = "position:relative; right:5px;text-align:center; font-size:20px;">3000 points</span>
       </div>
     
     </td>
@@ -109,7 +109,7 @@
       <div class="column">
 	  <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
     
-		<span class="column">5000 points</span>
+		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">5000 points</span>
       </div>
       
     </td>
@@ -117,7 +117,7 @@
 	<td>
       <div class="column">
         <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">15000 points</span>
+		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">15000 points</span>
       </div>
       
     </td>
@@ -125,7 +125,7 @@
     <td>
       <div class="column">
         <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">25000 points</span>
+		<span class="column"style = "position:relative; right:5px; text-align:center; font-size:20px;">25000 points</span>
       </div>
     
     </td>

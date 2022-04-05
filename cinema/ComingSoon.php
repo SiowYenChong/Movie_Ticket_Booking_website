@@ -11,7 +11,7 @@
 <body class=nav >
 <nav>
 
-	<div style="position:relative;top:-48px;left:85px">
+	<div style="position:relative;top:-48px;left:450px">
 <ul class=nav >
 
 <li class=nav  ><a  class=nav href="movies.php"> NOW SHOWING </a></li>
@@ -29,7 +29,7 @@
 </div>
 
 
-<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left:300px;">
+<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left:500px;">
 
 <ul class="nav"  >
 <li  class="nav" >
@@ -46,7 +46,7 @@
 
  </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <?php include "includes/footer.php" ;?>
 
