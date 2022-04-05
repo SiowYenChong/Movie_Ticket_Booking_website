@@ -13,7 +13,7 @@ class member{
             $_SESSION['m_name'] = $row['m_name'];
             $_SESSION['member_id'] = $row['member_id'];
         
-            header('location:index.php');
+            header('location:memberhome.php');
         }
         else{
 			echo '<script language="javascript">';
