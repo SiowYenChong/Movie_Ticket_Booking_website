@@ -1,8 +1,5 @@
 <?php
 
-if (!isset($_SESSION['m_name'])){
-header("login.php");}
-
 include_once("config.php");
 
 

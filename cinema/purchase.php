@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<?php
-if (!isset($_SESSION['m_name'])){
-header("login.php");}
-?>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <link rel='stylesheet' href='style/numberSelector.css'>
 
 <?php
-// $screening_id = $_GET['screening_id'];
-// if(empty($screening_id)){
-//     header("Location: index.php?");
-// }
+$screening_id = $_GET['screening_id'];
+if(empty($screening_id)){
+    header("Location: index.php?");
+}
 ?>
 <?php include_once('config.php'); ?>
 <?php include('includes/navigation2.php'); ?>

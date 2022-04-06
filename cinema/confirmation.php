@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-if (!isset($_SESSION['m_name'])){
-header("login.php");}
-?>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <?php
