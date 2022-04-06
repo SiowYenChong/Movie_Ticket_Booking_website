@@ -11,8 +11,8 @@ CFTv CINEMAS
 
 <body class=nav>
 
-<?php include('includes/navigation.php');?>
-
+<?php include_once('config.php');?>
+<?php include('includes/navigation2.php'); ?>
 
 
 <div class="slideshow-container" data-cycle="3500">

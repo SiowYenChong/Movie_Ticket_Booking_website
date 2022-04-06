@@ -2,8 +2,8 @@
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <?php
-include('includes/navigation2.php');
-
+<?php include_once('config.php');?>
+<?php include('includes/navigation2.php'); ?>
 $adult = $_GET['adult'];
 $child = $_GET['child'];
 $popcorn = $_GET['popcorn'];

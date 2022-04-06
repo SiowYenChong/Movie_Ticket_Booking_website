@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
+<?php include_once('config.php');?>
 <?php include('includes/navigation2.php'); ?>
 
 <head>

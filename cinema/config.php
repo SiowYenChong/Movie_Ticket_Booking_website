@@ -2,7 +2,6 @@
 session_start();
 $mysqli = mysqli_connect("localhost", "root", "", "admin") or die('DB setting not valid...!');
 
-
 class member{
     public function login($data){
     $connect = mysqli_connect("localhost", "root", "", "admin") or die('DB setting not valid...!');

@@ -3,7 +3,8 @@
 <html>
 
 <head>
-    <?php include 'includes/navigation2.php'; ?>
+<?php include_once('config.php');?>
+<?php include('includes/navigation2.php'); ?>
 
     <link rel="stylesheet" href="style/mystyle.css">
 </head>

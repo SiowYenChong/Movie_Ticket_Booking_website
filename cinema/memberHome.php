@@ -2,7 +2,8 @@
 <html lang="en">
 <link rel='stylesheet' href='style/mystyle.css'>
 
-<?php include('includes/navigation.php'); ?>
+<?php include_once('config.php');?>
+<?php include('includes/navigation2.php'); ?>
 <head>
     <title>Home - Member</title>
 	<meta charset ="UTF-8">
