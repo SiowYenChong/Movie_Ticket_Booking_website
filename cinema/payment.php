@@ -72,6 +72,9 @@ $total = $_GET['total'];
     if (isset($_POST['Submit'])) {
         $paymentType = $_POST['payment'];
         $seatCode = $_GET['aParam'];
+        $points = (rand(100,500));
+
+        
 
         if (!empty($paymentType)) {
 
@@ -79,7 +82,7 @@ $total = $_GET['total'];
 
             $id = $_SESSION['member_id'];
 
-            $submitTransaction = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type) VALUES('$screening_id','$id','$total','$paymentType')");
+            $submitTransaction = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type, points_earned) VALUES('$screening_id','$id','$total','$paymentType','$points')");
 
             foreach ($seatCode as $code) {
                 $query1 = "INSERT INTO seat (screening_id, seat_code, memberID) VALUES('$screening_id', '$code','$id')";

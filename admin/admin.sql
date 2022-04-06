@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 06, 2022 at 09:15 PM
+-- Generation Time: Apr 06, 2022 at 09:56 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `seat` (
   `seat_code` varchar(4) NOT NULL,
   `memberID` int(11) DEFAULT NULL,
   PRIMARY KEY (`seat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=123462 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=123469 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `seat`
@@ -217,7 +217,14 @@ INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `memberID`) VALUES
 (123458, 12, 'A1', 6),
 (123459, 13, 'G1', 6),
 (123460, 13, 'G2', 6),
-(123461, 13, 'G3', 6);
+(123461, 13, 'G3', 6),
+(123462, 13, 'B1', 6),
+(123463, 13, 'B2', 6),
+(123464, 13, 'A9', 6),
+(123465, 13, 'E10', 6),
+(123466, 13, 'E11', 6),
+(123467, 13, 'D4', 6),
+(123468, 13, 'D5', 6);
 
 -- --------------------------------------------------------
 
@@ -234,38 +241,43 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `total_price` varchar(35) NOT NULL,
   `payment_type` varchar(35) NOT NULL,
   `status` varchar(30) NOT NULL DEFAULT 'Successful',
+  `points_earned` int(11) NOT NULL,
   PRIMARY KEY (`transaction_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `transactionDateTime`, `total_price`, `payment_type`, `status`) VALUES
-(5, NULL, 0, '2022-04-06 03:45:05', '16', 'Mastercard', 'Successful'),
-(6, NULL, 0, '2022-04-06 03:45:05', '48', 'Bank Transfer', 'Successful'),
-(7, NULL, 0, '2022-04-06 03:45:05', '25', 'Bank Transfer', 'Successful'),
-(8, 12, 123456, '2022-04-06 03:46:22', '20', 'tng', 'Successful'),
-(9, 12, 123456, '2022-04-06 03:47:13', '20', 'visa', 'Successful'),
-(10, 12, 123456, '2022-04-06 03:47:29', '20', 'Bank Transfer', 'Successful'),
-(11, 12, 123456, '2022-04-06 03:48:52', '20', 'Touch n Go eWallet', 'Successful'),
-(12, 12, 123456, '2022-04-06 04:26:55', '20', '', 'Successful'),
-(13, 12, 123456, '2022-04-06 04:27:28', '20', 'Touch n Go eWallet', 'Successful'),
-(14, 12, 123456, '2022-04-06 04:34:33', '20', 'VISA Card', 'Successful'),
-(15, 12, 123456, '2022-04-06 04:35:14', '20', 'Mastercard', 'Successful'),
-(16, 12, 123456, '2022-04-06 21:13:20', '33', 'Mastercard', 'Successful'),
-(17, 12, 123456, '2022-04-06 21:16:31', '20', 'VISA Card', 'Successful'),
-(18, 13, 6, '2022-04-07 04:15:00', '50', 'VISA Card', 'Successful'),
-(19, 13, 6, '2022-04-07 04:15:40', '50', 'Touch n Go eWallet', 'Successful'),
-(20, 13, 6, '2022-04-07 04:22:30', '30', 'Touch n Go eWallet', 'Successful'),
-(21, 13, 6, '2022-04-07 04:27:59', '30', 'Touch n Go eWallet', 'Successful'),
-(22, 13, 6, '2022-04-07 04:36:49', '20', 'Mastercard', 'Successful'),
-(23, 12, 6, '2022-04-07 04:37:31', '20', 'VISA Card', 'Successful'),
-(24, 12, 6, '2022-04-07 04:46:54', '20', 'VISA Card', 'Successful'),
-(25, 12, 6, '2022-04-07 04:47:13', '20', 'VISA Card', 'Successful'),
-(26, 13, 6, '2022-04-07 04:50:25', '20', 'VISA Card', 'Successful'),
-(27, 12, 6, '2022-04-07 05:04:53', '20', 'Bank Transfer', 'Successful'),
-(28, 13, 6, '2022-04-07 05:05:31', '60', 'Bank Transfer', 'Successful');
+INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `transactionDateTime`, `total_price`, `payment_type`, `status`, `points_earned`) VALUES
+(5, NULL, 0, '2022-04-06 03:45:05', '16', 'Mastercard', 'Successful', 0),
+(6, NULL, 0, '2022-04-06 03:45:05', '48', 'Bank Transfer', 'Successful', 0),
+(7, NULL, 0, '2022-04-06 03:45:05', '25', 'Bank Transfer', 'Successful', 0),
+(8, 12, 123456, '2022-04-06 03:46:22', '20', 'tng', 'Successful', 0),
+(9, 12, 123456, '2022-04-06 03:47:13', '20', 'visa', 'Successful', 0),
+(10, 12, 123456, '2022-04-06 03:47:29', '20', 'Bank Transfer', 'Successful', 0),
+(11, 12, 123456, '2022-04-06 03:48:52', '20', 'Touch n Go eWallet', 'Successful', 0),
+(12, 12, 123456, '2022-04-06 04:26:55', '20', '', 'Successful', 0),
+(13, 12, 123456, '2022-04-06 04:27:28', '20', 'Touch n Go eWallet', 'Successful', 0),
+(14, 12, 123456, '2022-04-06 04:34:33', '20', 'VISA Card', 'Successful', 0),
+(15, 12, 123456, '2022-04-06 04:35:14', '20', 'Mastercard', 'Successful', 0),
+(16, 12, 123456, '2022-04-06 21:13:20', '33', 'Mastercard', 'Successful', 0),
+(17, 12, 123456, '2022-04-06 21:16:31', '20', 'VISA Card', 'Successful', 0),
+(18, 13, 6, '2022-04-07 04:15:00', '50', 'VISA Card', 'Successful', 0),
+(19, 13, 6, '2022-04-07 04:15:40', '50', 'Touch n Go eWallet', 'Successful', 0),
+(20, 13, 6, '2022-04-07 04:22:30', '30', 'Touch n Go eWallet', 'Successful', 0),
+(21, 13, 6, '2022-04-07 04:27:59', '30', 'Touch n Go eWallet', 'Successful', 0),
+(22, 13, 6, '2022-04-07 04:36:49', '20', 'Mastercard', 'Successful', 0),
+(23, 12, 6, '2022-04-07 04:37:31', '20', 'VISA Card', 'Successful', 0),
+(24, 12, 6, '2022-04-07 04:46:54', '20', 'VISA Card', 'Successful', 0),
+(25, 12, 6, '2022-04-07 04:47:13', '20', 'VISA Card', 'Successful', 0),
+(26, 13, 6, '2022-04-07 04:50:25', '20', 'VISA Card', 'Successful', 0),
+(27, 12, 6, '2022-04-07 05:04:53', '20', 'Bank Transfer', 'Successful', 0),
+(28, 13, 6, '2022-04-07 05:05:31', '60', 'Bank Transfer', 'Successful', 0),
+(29, 13, 6, '2022-04-07 05:26:48', '50', 'VISA Card', 'Successful', 0),
+(30, 13, 6, '2022-04-07 05:52:05', '25', 'VISA Card', 'Successful', 144),
+(31, 13, 6, '2022-04-07 05:53:24', '50', 'Touch n Go eWallet', 'Successful', 327),
+(32, 13, 6, '2022-04-07 05:55:08', '40', 'Bank Transfer', 'Successful', 466);
 
 -- --------------------------------------------------------
 
