@@ -85,7 +85,7 @@ $total = $_GET['total'];
             $submitTransaction = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type, points_earned) VALUES('$screening_id','$id','$total','$paymentType','$points')");
 
             foreach ($seatCode as $code) {
-                $query1 = "INSERT INTO seat (screening_id, seat_code, memberID) VALUES('$screening_id', '$code','$id')";
+                $query1 = "INSERT INTO seat (screening_id, seat_code, member_id) VALUES('$screening_id', '$code','$id')";
 
                 $q = mysqli_query($mysqli, $query1) or die(mysqli_error($link));
             }
