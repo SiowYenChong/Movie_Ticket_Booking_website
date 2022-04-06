@@ -77,7 +77,7 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 <td>
                     <div class="input-group">
                         <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="child" class="quantity-field">
+                        <input type="number" step="1" max="" value="0" name="popcorn" class="quantity-field">
                         <input type="button" value="+" class="button-plus" data-field="quantity">
                     </div>
                 </td>

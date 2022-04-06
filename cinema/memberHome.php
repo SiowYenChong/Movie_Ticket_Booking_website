@@ -97,38 +97,76 @@
   <tr>
     <td style="border-radius:50%">
       <div class="column">
+<<<<<<< HEAD
 
 		<input type ="image" src="image/reward.png" name="submit" alt ="submit " style="width:200px"/>
+=======
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(3000)"><img src="image/reward.png" style="width:200px"/></button>
+>>>>>>> 9538951b10e93d5ad4014d705b3d8ed1bdbf7ddc
         
 		<span class="column">3000 popcorns</span>
       </div>
     
     </td>
+<<<<<<< HEAD
 
     <td style="border-radius:50%">
       <div class="column">
 	  <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
     
 		<span class="column">5000 popcorns</span>
-      </div>
-      
-    </td>
-	  
-	<td>
+=======
+	
+	<td style="border-radius:50%">
+	
       <div class="column">
-        <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">15000 popcorns</span>
-      </div>
-      
-    </td>
-
-    <td>
-      <div class="column">
-        <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">25000 popcorns</span>
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(5000)"><img src="image/rewardsecond.png" style="width:200px"/></button>
+        
+		<span class="column">5000 points</span>
+		
+    
+>>>>>>> 9538951b10e93d5ad4014d705b3d8ed1bdbf7ddc
       </div>
     
     </td>
+	<td style="border-radius:50%">
+	
+      <div class="column">
+<<<<<<< HEAD
+        <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
+		<span class="column">15000 popcorns</span>
+=======
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(7000)"><img src="image/rewardthird.png" style="width:200px"/></button>
+        
+		<span class="column">7000 points</span>
+		
+    
+>>>>>>> 9538951b10e93d5ad4014d705b3d8ed1bdbf7ddc
+      </div>
+    
+    </td>
+	<td style="border-radius:50%">
+	
+      <div class="column">
+<<<<<<< HEAD
+        <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
+		<span class="column">25000 popcorns</span>
+=======
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(10000)"><img src="image/reward3.png" style="width:200px"/></button>
+        
+		<span class="column">10000 points</span>
+		
+    
+>>>>>>> 9538951b10e93d5ad4014d705b3d8ed1bdbf7ddc
+      </div>
+    
+    </td>
+    
+      
 
   </tr>
 </table>

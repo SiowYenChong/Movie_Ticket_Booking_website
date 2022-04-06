@@ -2,10 +2,17 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1
 -- Generation Time: Apr 06, 2022 at 07:05 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
+=======
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 06, 2022 at 01:30 PM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
+>>>>>>> 9538951b10e93d5ad4014d705b3d8ed1bdbf7ddc
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,16 +34,20 @@ SET time_zone = "+00:00";
 -- Table structure for table `branch`
 --
 
-CREATE TABLE `branch` (
-  `br_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `branch`;
+CREATE TABLE IF NOT EXISTS `branch` (
+  `br_id` int(11) NOT NULL AUTO_INCREMENT,
   `branch_id` varchar(30) NOT NULL,
   `branch_name` varchar(300) NOT NULL,
   `branch_address` varchar(300) NOT NULL,
   `branch_image` varchar(300) DEFAULT NULL,
   `no_of_halls` int(11) NOT NULL,
   `hall_id` int(11) NOT NULL,
-  `screening_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `screening_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`br_id`),
+  KEY `Hall Foreign Key` (`hall_id`),
+  KEY `Screening Foreign Key` (`screening_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `branch`
@@ -65,14 +76,17 @@ INSERT INTO `branch` (`br_id`, `branch_id`, `branch_name`, `branch_address`, `br
 -- Table structure for table `hall`
 --
 
-CREATE TABLE `hall` (
-  `h_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `hall`;
+CREATE TABLE IF NOT EXISTS `hall` (
+  `h_id` int(11) NOT NULL AUTO_INCREMENT,
   `hall_id` varchar(30) NOT NULL,
   `seat_id` int(11) DEFAULT NULL,
   `hall_no` int(11) NOT NULL,
   `hall_type` varchar(30) NOT NULL,
-  `hall_capacity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `hall_capacity` int(11) NOT NULL,
+  PRIMARY KEY (`h_id`),
+  KEY `Foreign Key` (`seat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `hall`
@@ -101,8 +115,9 @@ INSERT INTO `hall` (`h_id`, `hall_id`, `seat_id`, `hall_no`, `hall_type`, `hall_
 -- Table structure for table `member`
 --
 
-CREATE TABLE `member` (
-  `member_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `member`;
+CREATE TABLE IF NOT EXISTS `member` (
+  `member_id` int(11) NOT NULL AUTO_INCREMENT,
   `m_card` varchar(35) DEFAULT NULL,
   `m_rewards` varchar(35) DEFAULT NULL,
   `m_name` varchar(35) NOT NULL,
@@ -113,8 +128,9 @@ CREATE TABLE `member` (
   `m_number` varchar(35) NOT NULL,
   `m_address` varchar(300) NOT NULL,
   `m_picture` varchar(300) DEFAULT NULL,
-  `m_points` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `m_points` varchar(35) NOT NULL,
+  PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `member`
@@ -131,8 +147,9 @@ INSERT INTO `member` (`member_id`, `m_card`, `m_rewards`, `m_name`, `m_email`, `
 -- Table structure for table `movie`
 --
 
-CREATE TABLE `movie` (
-  `movie_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `movie`;
+CREATE TABLE IF NOT EXISTS `movie` (
+  `movie_id` int(11) NOT NULL AUTO_INCREMENT,
   `movie_poster` varchar(300) NOT NULL,
   `movie_name` varchar(300) NOT NULL,
   `movie_duration` varchar(20) NOT NULL,
@@ -140,8 +157,9 @@ CREATE TABLE `movie` (
   `movie_rating` int(11) NOT NULL,
   `movie_trailer` varchar(300) NOT NULL,
   `movie_desc` varchar(3000) NOT NULL,
-  `movie_case` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `movie_case` varchar(30) NOT NULL,
+  PRIMARY KEY (`movie_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `movie`
@@ -158,15 +176,20 @@ INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`,
 -- Table structure for table `screening`
 --
 
-CREATE TABLE `screening` (
-  `screening_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `screening`;
+CREATE TABLE IF NOT EXISTS `screening` (
+  `screening_id` int(11) NOT NULL AUTO_INCREMENT,
   `screen_id` varchar(11) NOT NULL,
   `movie_id` int(11) NOT NULL,
   `branch_id` int(11) NOT NULL,
   `hall_id` int(11) NOT NULL,
   `screening_date` date NOT NULL,
-  `screening_time` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `screening_time` varchar(6) NOT NULL,
+  PRIMARY KEY (`screening_id`),
+  KEY `Movie Foreign Key` (`movie_id`),
+  KEY `Branch Foreign Key` (`branch_id`),
+  KEY `Halll Foreign Key` (`hall_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `screening`
@@ -182,12 +205,24 @@ INSERT INTO `screening` (`screening_id`, `screen_id`, `movie_id`, `branch_id`, `
 -- Table structure for table `seat`
 --
 
-CREATE TABLE `seat` (
-  `seat_id` int(11) NOT NULL,
-  `seat_num` int(11) NOT NULL,
-  `seat_status` varchar(30) NOT NULL,
-  `seat_type` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `seat`;
+CREATE TABLE IF NOT EXISTS `seat` (
+  `seat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `screening_id` int(11) NOT NULL,
+  `seat_code` varchar(4) NOT NULL,
+  `seat_status` tinyint(1) NOT NULL DEFAULT '0',
+  `memberID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`seat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=123457 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `seat_status`, `memberID`) VALUES
+(1, 12, 'F2', 1, 123456),
+(2, 12, 'F5', 1, 123456),
+(3, 12, 'E3', 1, 123456);
 
 -- --------------------------------------------------------
 
@@ -195,28 +230,36 @@ CREATE TABLE `seat` (
 -- Table structure for table `transaction`
 --
 
-CREATE TABLE `transaction` (
-  `transaction_id` int(11) NOT NULL,
-  `ticket_id` int(11) DEFAULT NULL,
+DROP TABLE IF EXISTS `transaction`;
+CREATE TABLE IF NOT EXISTS `transaction` (
+  `transaction_id` int(11) NOT NULL AUTO_INCREMENT,
   `screening_id` int(11) DEFAULT NULL,
   `member_id` int(11) NOT NULL,
-  `food_id` int(11) DEFAULT NULL,
-  `transaction_date` varchar(35) NOT NULL,
-  `transaction_time` varchar(35) NOT NULL,
-  `booking_price` varchar(35) NOT NULL,
+  `transactionDateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `total_price` varchar(35) NOT NULL,
   `payment_type` varchar(35) NOT NULL,
-  `total_payment` varchar(35) NOT NULL,
-  `status` varchar(30) NOT NULL DEFAULT 'Successful'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `status` varchar(30) NOT NULL DEFAULT 'Successful',
+  PRIMARY KEY (`transaction_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`transaction_id`, `ticket_id`, `screening_id`, `member_id`, `food_id`, `transaction_date`, `transaction_time`, `booking_price`, `payment_type`, `total_payment`, `status`) VALUES
-(5, NULL, NULL, 0, NULL, '2022-04-02', '9:57', '16', 'Mastercard', '20', 'Successful'),
-(6, NULL, NULL, 0, NULL, '2022-04-01', '10:05', '48', 'Bank Transfer', '50', 'Successful'),
-(7, NULL, NULL, 0, NULL, '2022-04-03', '23:00', '25', 'Bank Transfer', '30', 'Successful');
+INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `transactionDateTime`, `total_price`, `payment_type`, `status`) VALUES
+(5, NULL, 0, '2022-04-06 03:45:05', '16', 'Mastercard', 'Successful'),
+(6, NULL, 0, '2022-04-06 03:45:05', '48', 'Bank Transfer', 'Successful'),
+(7, NULL, 0, '2022-04-06 03:45:05', '25', 'Bank Transfer', 'Successful'),
+(8, 12, 123456, '2022-04-06 03:46:22', '20', 'tng', 'Successful'),
+(9, 12, 123456, '2022-04-06 03:47:13', '20', 'visa', 'Successful'),
+(10, 12, 123456, '2022-04-06 03:47:29', '20', 'Bank Transfer', 'Successful'),
+(11, 12, 123456, '2022-04-06 03:48:52', '20', 'Touch n Go eWallet', 'Successful'),
+(12, 12, 123456, '2022-04-06 04:26:55', '20', '', 'Successful'),
+(13, 12, 123456, '2022-04-06 04:27:28', '20', 'Touch n Go eWallet', 'Successful'),
+(14, 12, 123456, '2022-04-06 04:34:33', '20', 'VISA Card', 'Successful'),
+(15, 12, 123456, '2022-04-06 04:35:14', '20', 'Mastercard', 'Successful'),
+(16, 12, 123456, '2022-04-06 21:13:20', '33', 'Mastercard', 'Successful'),
+(17, 12, 123456, '2022-04-06 21:16:31', '20', 'VISA Card', 'Successful');
 
 -- --------------------------------------------------------
 
@@ -224,16 +267,18 @@ INSERT INTO `transaction` (`transaction_id`, `ticket_id`, `screening_id`, `membe
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(30) NOT NULL,
   `last_name` varchar(30) NOT NULL,
   `user_name` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `dob` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dob` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -241,117 +286,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_name`, `email`, `password`, `gender`, `dob`) VALUES
 (1, 'Assignment', 'Assignment', 'test', 'test@test.com', '1234', 'male', '1997-05-06'),
-(2, 'claire', 'C', 'Claire', 'clair@gmail.com', '234', 'female', '2000-03-11');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `branch`
---
-ALTER TABLE `branch`
-  ADD PRIMARY KEY (`br_id`),
-  ADD KEY `Hall Foreign Key` (`hall_id`),
-  ADD KEY `Screening Foreign Key` (`screening_id`);
-
---
--- Indexes for table `hall`
---
-ALTER TABLE `hall`
-  ADD PRIMARY KEY (`h_id`),
-  ADD KEY `Foreign Key` (`seat_id`);
-
---
--- Indexes for table `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`member_id`);
-
---
--- Indexes for table `movie`
---
-ALTER TABLE `movie`
-  ADD PRIMARY KEY (`movie_id`);
-
---
--- Indexes for table `screening`
---
-ALTER TABLE `screening`
-  ADD PRIMARY KEY (`screening_id`),
-  ADD KEY `Movie Foreign Key` (`movie_id`),
-  ADD KEY `Branch Foreign Key` (`branch_id`),
-  ADD KEY `Halll Foreign Key` (`hall_id`);
-
---
--- Indexes for table `seat`
---
-ALTER TABLE `seat`
-  ADD PRIMARY KEY (`seat_id`);
-
---
--- Indexes for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`transaction_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `branch`
---
-ALTER TABLE `branch`
-  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
---
--- AUTO_INCREMENT for table `hall`
---
-ALTER TABLE `hall`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT for table `member`
---
-ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `movie`
---
-ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `screening`
---
-ALTER TABLE `screening`
-  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `seat`
---
-ALTER TABLE `seat`
-  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `transaction`
---
-ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+(2, 'claire', 'C', 'Claire', 'clair@gmail.com', '123', 'female', '2000-03-11');
 
 --
 -- Constraints for dumped tables

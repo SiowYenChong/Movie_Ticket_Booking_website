@@ -2,14 +2,16 @@
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <?php
-<?php include_once('config.php');?>
-<?php include('includes/navigation2.php'); ?>
+
+include_once('config.php');
+include('includes/navigation2.php');
 $adult = $_GET['adult'];
 $child = $_GET['child'];
 $popcorn = $_GET['popcorn'];
 $hotdog = $_GET['hotdog'];
 $nugget = $_GET['nugget'];
 $coke = $_GET['coke'];
+
 ?>
 
 <head>
@@ -34,12 +36,16 @@ $coke = $_GET['coke'];
                                 <td>Total:</td>
                                 <td><?php echo number_format($adult * 20, 2); ?></td>
                             </tr>
-                            <tr>
-                                <td>Child Seat</td>
-                                <td><?php echo $child; ?></td>
-                                <td>Total:</td>
-                                <td><?php echo number_format($child * 10, 2); ?></td>
-                            </tr>
+                            <?php
+                            if ($child > 0) {
+                                echo '<tr>';
+                                echo '<td>Child Seat</td>';
+                                echo '<td>'.$child.'</td>';
+                                echo '<td>Total:</td>';
+                                echo '<td>'.number_format($child * 10, 2).'</td>';
+                                echo '</tr>';
+                            }
+                            ?>
                             <tr>
                                 <td></td>
                                 <td></td>
@@ -52,6 +58,7 @@ $coke = $_GET['coke'];
                                 </td>
                             </tr>
                         </table>
+                    </td>
                 </tr>
         </table>
         </td>
@@ -60,49 +67,61 @@ $coke = $_GET['coke'];
         </table>
         <hr style="width: 95%; margin:auto">
 
-        <table id="purchaseTable">
-            <tr>
-                <td><img src="image/popcorn.jpg" style="width:200px;"></td>
-                <td>Popcorn</td>
-                <td><?php echo $popcorn; ?></td>
-                <td>Total:</td>
-                <td><?php echo number_format($popcorn * 11.00, 2); ?></td>
-            </tr>
-            <tr>
-                <td><img src="image/hotdog.webp" style="width:200px;"></td>
-                <td>Hotdog</td>
-                <td><?php echo $hotdog; ?></td>
-                <td>Total:</td>
-                <td><?php echo number_format($hotdog * 8.00, 2); ?></td>
-            </tr>
-            <tr>
-                <td><img src="image/nugget.jpg" style="width:200px;"></td>
-                <td>Nugget</td>
-                <td><?php echo $nugget; ?></td>
-                <td>Total:</td>
-                <td><?php echo number_format($nugget * 10.00, 2); ?></td>
-            </tr>
-            <tr>
-                <td><img src="image/coke.jpg" style="width:200px;"></td>
-                <td>Coke</td>
-                <td><?php echo $coke; ?></td>
-                <td>Total:</td>
-                <td><?php echo number_format($coke * 5.00, 2); ?></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Sub Total:</td>
-                <td>
-                    <?php
-                    $sub2 = ($popcorn * 11) + ($hotdog * 8) + ($nugget * 10) + ($coke * 5);
-                    echo number_format($sub2, 2);
-                    ?>
-                </td>
-            </tr>
-        </table>
-        <hr style="width: 95%; margin:auto">
+        <?php
+        if ($popcorn > 0 || $hotdog > 0 || $nugget > 0 || $coke > 0) {
+            echo '<table id="purchaseTable">';
+            if ($popcorn > 0) {
+                echo '<tr>';
+                echo '<td><img src="image/popcorn.jpg" style="width:200px;"></td>';
+                echo '<td>Popcorn</td>';
+                echo '<td>'.$popcorn.'</td>';
+                echo '<td>Total:</td>';
+                echo '<td>'.number_format($popcorn * 11.00, 2).'</td>';
+                echo '</tr>';
+            }
+
+            if ($hotdog > 0) {
+                echo '<tr>';
+                echo '<td><img src="image/hotdog.webp" style="width:200px;"></td>';
+                echo '<td>Hotdog</td>';
+                echo '<td>'.$hotdog.'</td>';
+                echo '<td>Total:</td>';
+                echo '<td>'.number_format($hotdog * 8.00, 2).'</td>';
+                echo '</tr>';
+            }
+
+            if ($nugget > 0) {
+                echo '<tr>';
+                echo '<td><img src="image/nugget.jpg" style="width:200px;"></td>';
+                echo '<td>Nugget</td>';
+                echo '<td>'.$nugget.'</td>';
+                echo '<td>Total:</td>';
+                echo '<td>'.number_format($nugget * 10.00, 2).'</td>';
+                echo '</tr>';
+            }
+            
+            if ($coke > 0) {
+                echo '<tr>';
+                echo '<td><img src="image/coke.jpg" style="width:200px;"></td>';
+                echo '<td>Coke</td>';
+                echo '<td>'.$coke.'</td>';
+                echo '<td>Total:</td>';
+                echo '<td>'.number_format($coke * 10.00, 2).'</td>';
+                echo '</tr>';
+            }
+
+            echo '<tr>';
+            echo '<td></td>';
+            echo '<td></td>';
+            echo '<td></td>';
+            echo '<td>Sub Total:</td>';
+            $sub2 = ($popcorn * 11) + ($hotdog * 8) + ($nugget * 10) + ($coke * 5);;
+            echo '<td>'.number_format($sub2, 2).'</td>';
+            echo '</tr>';
+            echo '</table>';
+            echo '<hr style="width: 95%; margin:auto">';
+        }
+        ?>
 
         <table id="purchaseTable">
             <tr>
@@ -126,7 +145,7 @@ $coke = $_GET['coke'];
 
     </form>
     <br><br><br>
-    
+
     <?php
     if (isset($_POST['Submit'])) {
         echo '<script>alert("' . $total . '")</script>';
