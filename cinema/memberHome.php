@@ -117,7 +117,7 @@
 	
       <div class="column">
 		<div id="container">
-		<button id="decrement" onclick="decreaseInteger(5000)"><img src="image/reward.png" style="width:200px"/></button>
+		<button id="decrement" onclick="decreaseInteger(5000)"><img src="image/rewardsecond.png" style="width:200px"/></button>
         
 		<span class="column">5000 points</span>
 		
@@ -129,7 +129,7 @@
 	
       <div class="column">
 		<div id="container">
-		<button id="decrement" onclick="decreaseInteger(7000)"><img src="image/reward.png" style="width:200px"/></button>
+		<button id="decrement" onclick="decreaseInteger(7000)"><img src="image/rewardthird.png" style="width:200px"/></button>
         
 		<span class="column">7000 points</span>
 		
@@ -141,7 +141,7 @@
 	
       <div class="column">
 		<div id="container">
-		<button id="decrement" onclick="decreaseInteger(10000)"><img src="image/reward.png" style="width:200px"/></button>
+		<button id="decrement" onclick="decreaseInteger(10000)"><img src="image/reward3.png" style="width:200px"/></button>
         
 		<span class="column">10000 points</span>
 		
