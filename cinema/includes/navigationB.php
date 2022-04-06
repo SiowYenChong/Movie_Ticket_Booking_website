@@ -13,7 +13,7 @@ if (!isset($_SESSION['m_name'])) {
     header('location: login.php');
 }
 else{
-			echo'<a href="index.php?logout=1" style="color: red;float:right;position:relative;">'.'Click here to Logout'.'</a>';
+			echo'<a href="index.php?logout=1" style="color: red;float:right;position:relative;">'.'Logout'.'</a>';
 			echo '<h4 id="m_name" style="color:white;float:right;position:relative;top:-20px;">';
 			echo 'Hello '. $_SESSION['m_name'].',';
 			echo '</h4>';
