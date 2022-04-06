@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 06, 2022 at 09:56 PM
+-- Generation Time: Apr 06, 2022 at 10:08 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `seat` (
   `seat_id` int(11) NOT NULL AUTO_INCREMENT,
   `screening_id` int(11) NOT NULL,
   `seat_code` varchar(4) NOT NULL,
-  `memberID` int(11) DEFAULT NULL,
+  `member_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`seat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=123469 DEFAULT CHARSET=utf8mb4;
 
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `seat` (
 -- Dumping data for table `seat`
 --
 
-INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `memberID`) VALUES
+INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `member_id`) VALUES
 (1, 12, 'F2', 123456),
 (2, 12, 'F5', 123456),
 (3, 12, 'E3', 123456),
@@ -263,21 +263,8 @@ INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `trans
 (15, 12, 123456, '2022-04-06 04:35:14', '20', 'Mastercard', 'Successful', 0),
 (16, 12, 123456, '2022-04-06 21:13:20', '33', 'Mastercard', 'Successful', 0),
 (17, 12, 123456, '2022-04-06 21:16:31', '20', 'VISA Card', 'Successful', 0),
-(18, 13, 6, '2022-04-07 04:15:00', '50', 'VISA Card', 'Successful', 0),
-(19, 13, 6, '2022-04-07 04:15:40', '50', 'Touch n Go eWallet', 'Successful', 0),
-(20, 13, 6, '2022-04-07 04:22:30', '30', 'Touch n Go eWallet', 'Successful', 0),
-(21, 13, 6, '2022-04-07 04:27:59', '30', 'Touch n Go eWallet', 'Successful', 0),
-(22, 13, 6, '2022-04-07 04:36:49', '20', 'Mastercard', 'Successful', 0),
-(23, 12, 6, '2022-04-07 04:37:31', '20', 'VISA Card', 'Successful', 0),
-(24, 12, 6, '2022-04-07 04:46:54', '20', 'VISA Card', 'Successful', 0),
-(25, 12, 6, '2022-04-07 04:47:13', '20', 'VISA Card', 'Successful', 0),
-(26, 13, 6, '2022-04-07 04:50:25', '20', 'VISA Card', 'Successful', 0),
-(27, 12, 6, '2022-04-07 05:04:53', '20', 'Bank Transfer', 'Successful', 0),
-(28, 13, 6, '2022-04-07 05:05:31', '60', 'Bank Transfer', 'Successful', 0),
-(29, 13, 6, '2022-04-07 05:26:48', '50', 'VISA Card', 'Successful', 0),
-(30, 13, 6, '2022-04-07 05:52:05', '25', 'VISA Card', 'Successful', 144),
 (31, 13, 6, '2022-04-07 05:53:24', '50', 'Touch n Go eWallet', 'Successful', 327),
-(32, 13, 6, '2022-04-07 05:55:08', '40', 'Bank Transfer', 'Successful', 466);
+(32, 12, 6, '2022-04-07 05:55:08', '40', 'Bank Transfer', 'Successful', 466);
 
 -- --------------------------------------------------------
 
