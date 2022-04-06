@@ -1,3 +1,11 @@
+<?php 
+require_once 'config.php';
+
+//Fetch movies from database...
+$fetch_movies = mysqli_query($mysqli, "select * from movie where movie_case = 'now showing' ");
+
+?>
+
 <!DOCTYPE html>	
 <html>
 <head>
@@ -6,12 +14,12 @@
 <link rel=stylesheet href="style/mystyle.css">
 
 </head>
-<?php include_once('config.php');?>
-<?php include('includes/navigation2.php'); ?>
+
+<?php include('includes/navigationB.php');?>
 <body class=nav >
 
 
-<div style="position:relative;top:-48px;left: 450px">
+<div style="position:relative;top:-48px;left:85px">
 <ul class=nav >
 
 <li class=nav  ><a  class=nav href="movies.php" style="color:red;"> NOW SHOWING </a></li>
@@ -23,27 +31,22 @@
 
 
 </div>
-<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left: 450px;">
+<div class="nowshowing-poster" style="align-items: center;position:relative;top:60px;left:200px;">
 
 <ul class="nav"  >
+    <?php 
+      while($movies = mysqli_fetch_assoc($fetch_movies)){
+  ?>
 <li  class="nav" >
-<a href="movieInfo1.php">
-<img src="image/p1.jpg" alt="p1" style="width:200px; height:200px;">
-  <figcaption>DOCTOR STRANGE</figcaption>
-
-
+<a href="movieInfo1.php?id=<?php echo $movies['movie_id']; ?>">
+<img src="../admin/images/<?php echo $movies['movie_poster']; ?>" alt="p1" style="width:300px; height:250px;">
+  <figcaption><?php echo $movies['movie_name']; ?></figcaption>
 </a>
 </li>
+<?php
+    }
+  ?>
 
-<li  class=nav >
-<a href="movieInfo2.php">
- <img src="image/p2.jpg" alt="p2" style="width:200px; height:200px;">
-
- <figcaption>JUJUTSU KAISEN 0</figcaption>
- 
-
- </a>
-  </li>
  </ul>
 
  </div>

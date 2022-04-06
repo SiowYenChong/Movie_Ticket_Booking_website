@@ -12,7 +12,7 @@ $fetch_movies = mysqli_query($connect, "select * from movie");
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CLient page</title>
+	<title>client</title>
 </head>
 <body>
 	<table>

@@ -6,37 +6,83 @@
 CFTv CINEMAS
 </title>
 <link rel="stylesheet" href="style/mystyle.css">  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+
+function nowShowing(){
+
+        //alert("Now Showing");
+          var now_Showing = 1;    
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'now_Showing='+now_Showing,
+                success:function(html){
+                    $('#movieList').html(html);
+                   
+                }
+            }); 
+        
+   
+  }
+  function comingSoon(){
+
+        //alert("Now Showing");
+          var coming_Soon = 1;    
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'coming_Soon='+coming_Soon,
+                success:function(html){
+                    $('#movieList').html(html);
+                   
+                }
+            }); 
+        
+   
+  }
+
+
+
+
+</script>
 
 </head>
 
 <body class=nav>
 
-<?php include_once('config.php');?>
-<?php include('includes/navigation2.php'); ?>
+<?php 
+require_once 'config.php';
+include('includes/navigationA.php');
+
+//Fetch movies from database...
+$fetch_movies = mysqli_query($mysqli, "select * from movie ");
+
+?>
 
 
 <div class="slideshow-container" data-cycle="3500">
 
-	<div class="mySlides1 fade">
-		<div class="numbertext">1 / 3</div>
-		<img src="image/p1.jpg" style="width:100%; height:550px;">
-	
-	</div>
+<div class="mySlides1 fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="image/p1.jpg" style="width:100%; height:550px;">
+ 
+</div>
 
-	<div class="mySlides1 fade">
-		<div class="numbertext">2 / 3</div>
-		<img src="image/p2.jpg" style="width:100%;height:550px;">
-		<div class="text">Caption Two</div>
-	</div>
+<div class="mySlides1 fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="image/p2.jpg" style="width:100%;height:550px;">
+  <div class="text">Caption Two</div>
+</div>
 
-	<div class="mySlides1 fade">
-		<div class="numbertext">3 / 3</div>
-		<img src="image/p3.jpg" style="width:100%;height:550px;">
-		<div class="text">Caption Three</div>
-	</div>
+<div class="mySlides1 fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="image/p3.jpg" style="width:100%;height:550px;">
+  <div class="text">Caption Three</div>
+</div>
 
-	<a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1,0)">&#10095;</a>
+<a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
+<a class="next" onclick="plusSlides(1,0)">&#10095;</a>
 
 </div>
 <br>
@@ -62,8 +108,7 @@ CFTv CINEMAS
  
   background-size: cover;
   position: relative;
-  top:-10px;
-  left: 700px;">
+  top:-30px;">
 	
 
 <input class="coming_soon"
@@ -80,42 +125,36 @@ CFTv CINEMAS
  
   background-size: cover;
   position: relative;
-  top:-10px;
-  left: 700px;"
-  >
-  
+  top:-30px">
+	   
 
-<div id="nowshowing-poster" style = "position: relative;top:0px;left: 700px;">
+<div id="nowshowing-poster">
 
-<ul class="nav2"  >
+<ul class="nav2"  id="movieList" >
+	<?php 
+			while($movies = mysqli_fetch_assoc($fetch_movies)){
+	?>
 <li  class="nav2" >
-<a href="movieInfo1.php">
-<img src="image/p1.jpg" alt="p1" style="width:300px; height:250px;">
-  <figcaption>DOCTOR STRANGE</figcaption>
+<a href="movieInfo1.php?id=<?php echo $movies['movie_id']; ?>">
+<img src="../admin/images/<?php echo $movies['movie_poster']; ?>" alt="p1" style="width:300px; height:250px;">
+  <figcaption><?php echo $movies['movie_name']; ?></figcaption>
 </a>
 </li>
+<?php
+		}
+	?>
 
-
-<!--
-<li  class=nav2>
-<a href="movieInfo2.php">
- <img src="image/p2.jpg" alt="p2" style="width:300px; height:250px;">
-
- <figcaption>JUJUTSU KAISEN 0</figcaption>
-</a>
- </li>
- -->
-
+ 
  </ul>
 
  </div>
  
  
- <br> <br>
  
  
  
-<div class="branches" style = "position: relative;top:-300px;">
+ 
+<div class="branches">
 
 <table>
 <tr>
@@ -125,11 +164,13 @@ CFTv CINEMAS
 <div class="mySlides2 fade">
 
 		<p class="title" id="title" style="	color:white;
+			
 			text-align:center;
 			font-size:40px;
 			position:relative;
-			top:50px;left: 20px;"> <b><u>Branches</u></b> </p>
+			top:50px;"> <b><u>Branches</u></b> </p>
 		<div  style="	color:white;
+			
 			font-size:20px;
 			position:relative;
 			left:500px;
@@ -154,8 +195,7 @@ CFTv CINEMAS
 			
 			text-align:center;
 			font-size:40px;position:relative;
-			top:50px;
-			left:20px;"> <b><u>Branches</u></b> </p>
+			top:50px;"> <b><u>Branches</u></b> </p>
 		<div  style="	color:white;
 			
 			font-size:20px;
@@ -183,7 +223,7 @@ CFTv CINEMAS
 			
 			text-align:center;
 			font-size:40px;position:relative;
-			top:50px;left:20px;"> <b><u>Branches</b></u> </p>
+			top:50px;"> <b><u>Branches</b></u> </p>
 		<div  style="	color:white;
 			
 			font-size:20px;
@@ -205,7 +245,7 @@ CFTv CINEMAS
 </div>
 </div>
 <a class="prev" onclick="plusSlides(-1,1)">&#10094;</a>
-<a" class="next" onclick="plusSlides(1,1)">&#10095;</a>
+<a class="next" onclick="plusSlides(1,1)">&#10095;</a>
 
 </div>
 
@@ -213,31 +253,31 @@ CFTv CINEMAS
 
 
 <script >
-function comingSoon(){
-document.getElementById("nowshowing-poster").innerHTML = "<ul class=nav2  >"+
-"<li  class=nav2 >"+
-"<a href=movieInfo3.php>"+
-"<img src=image/p3.jpg alt=p1 style='width:300px; height:250px;'>"+
-  "<figcaption>THE BATMAN</figcaption>"+
+// function comingSoon(){
+// document.getElementById("nowshowing-poster").innerHTML = "<ul class=nav2  >"+
+// "<li  class=nav2 >"+
+// "<a href=movieInfo3.php>"+
+// "<img src=image/p3.jpg alt=p1 style='width:300px; height:250px;'>"+
+//   "<figcaption>THE BATMAN</figcaption>"+
 
-"</li>" +
-"</a>" +
-"</ul>";
+// "</li>" +
+// "</a>" +
+// "</ul>";
 
-}
+// }
 
-function nowShowing(){
-document.getElementById("nowshowing-poster").innerHTML = "<ul class=nav2  >"+
-"<li  class=nav2 >"+
-"<a href=movieInfo1.php>"+
-"<img src=image/p1.jpg alt=p1 style='width:300px; height:250px;'>"+
-  "<figcaption>DOCTOR STRANGE</figcaption>"+
+// function nowShowing(){
+// document.getElementById("nowshowing-poster").innerHTML = "<ul class=nav2  >"+
+// "<li  class=nav2 >"+
+// "<a href=movieInfo1.php>"+
+// "<img src=image/p1.jpg alt=p1 style='width:300px; height:250px;'>"+
+//   "<figcaption>DOCTOR STRANGE</figcaption>"+
 
-"</li>" +
-"</a>" +
-"</ul>";
+// "</li>" +
+// "</a>" +
+// "</ul>";
 
-}
+// }
 
 
 var slideIndex = [1,1];

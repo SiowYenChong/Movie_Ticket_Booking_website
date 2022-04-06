@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 08:10 AM
+-- Generation Time: Apr 06, 2022 at 07:05 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -121,7 +121,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `m_card`, `m_rewards`, `m_name`, `m_email`, `m_password`, `m_dob`, `m_gender`, `m_number`, `m_address`, `m_picture`, `m_points`) VALUES
-(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', '1233', '2000-10-07', 'Select Gender', '018-2017978', 'Seremban', NULL, '2000'),
+(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', '1233', '2000-10-07', 'Female', '018-2017978', 'Seremban', NULL, '2000'),
 (7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Female', '012-3456789', 'Penang', NULL, '5000'),
 (8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-01-01', 'Male', '010-4545455', 'Selangor', NULL, '4000');
 
@@ -148,9 +148,9 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`, `movie_date`, `movie_rating`, `movie_trailer`, `movie_desc`, `movie_case`) VALUES
-(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '126', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																												', 'Upcoming'),
-(8, 'jujutsuKaisen.jpg', 'Jujutsu Kaisen 0', '105', '2021-12-24', 8, 'https://www.youtube.com/embed/UPRqnFnnrr8', 'Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.', 'Released'),
-(9, 'Batman.jpg', 'The Batman', '176', '2022-03-04', 8, 'https://www.youtube.com/embed/mqqft2x_Aa4', 'Batman ventures into Gotham City\'s underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator\'s plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis.', 'Released');
+(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '126', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																																										', 'coming soon'),
+(8, 'jujutsuKaisen.jpg', 'Jujutsu Kaisen 0', '105', '2021-12-24', 8, 'https://www.youtube.com/embed/UPRqnFnnrr8', '																Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.														', 'now showing'),
+(9, 'Batman.jpg', 'The Batman', '176', '2022-03-04', 8, 'https://www.youtube.com/embed/mqqft2x_Aa4', 'Batman ventures into Gotham City\'s underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator\'s plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis.							', 'now showing');
 
 -- --------------------------------------------------------
 
@@ -173,8 +173,8 @@ CREATE TABLE `screening` (
 --
 
 INSERT INTO `screening` (`screening_id`, `screen_id`, `movie_id`, `branch_id`, `hall_id`, `screening_date`, `screening_time`) VALUES
-(12, '1', 8, 39, 1, '2022-04-04', '2pm'),
-(13, '2', 9, 49, 37, '2022-04-04', '9pm');
+(12, '1', 8, 39, 1, '2022-04-10', '2pm'),
+(13, '2', 9, 49, 37, '2022-04-10', '9pm');
 
 -- --------------------------------------------------------
 

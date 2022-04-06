@@ -1,3 +1,11 @@
+<?php
+  require_once 'config.php';
+
+  $movie_id = $_GET['id'];
+  $fetch_movies_details = mysqli_query($mysqli, "select * from movie where movie_id = '".$movie_id."' ");
+  $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
+?>
+
 <!DOCTYPE html>	
 <html>
 <head>
@@ -47,44 +55,39 @@
 </style>
 </head>
 
-<?php include('includes/navigation.php');?>
+<?php include('includes/navigationB.php');?>
 <body class=nav >
-<h1> DOCTOR STRANGE</h1>
-<iframe width=100% height="460px" src="https://www.youtube.com/embed/Rt_UqUm38BI?autoplay=1&mute=1" >
+<h1><?php echo $fetch_details['movie_name']; ?></h1>
+<iframe width=100% height="460px" src="<?php echo $fetch_details['movie_trailer']; ?>" >
 </iframe>
 
-<h2> Duration:</h2>
-<h2> Publish Date::</h2>
-<h2> Rating:</h2>
+<h2> Duration: <?php echo $fetch_details['movie_duration']; ?></h2>
+<h2> Publish Date: <?php echo $fetch_details['movie_date']; ?></h2>
+<h2> Rating: <?php echo $fetch_details['movie_rating']; ?></h2>
 
 <div>
+  <?php
+    $fetch_movie_branches = mysqli_query($mysqli, "select branch.branch_name, branch.br_id from branch inner join screening on branch.br_id = screening.branch_id where screening.movie_id = '".$fetch_details['movie_id']."' group by branch.branch_name ");
+    while($fetch_branches = mysqli_fetch_assoc($fetch_movie_branches)){
+?>
 <div class="dropdown">
-  <button class="dropbtn">KLCC</button>
+  <button class="dropbtn"><?php echo $fetch_branches['branch_name']; ?></button>
   <div class="dropdown-content">
-    <a href="purchase.php">1.15pm</a>
-    <a href="purchase.php">3.15pm</a>
-    <a href="purchase.php">4.15pm</a>
+    <?php 
+      $fetch_time = mysqli_query($mysqli, "select * from screening where movie_id = '".$fetch_details['movie_id']."' and branch_id = '".$fetch_branches['br_id']."' ");
+      while($time = mysqli_fetch_assoc($fetch_time)){
+        ?>
+
+    <a href="purchase.php"><?php echo $time['screening_time']; ?></a>
+
+        <?php
+      }
+    ?>
   </div>
 </div>
-
-<div class="dropdown">
-  <button class="dropbtn">BUTTERWORTH</button>
-  <div class="dropdown-content">
-   <a href="purchase.php">1.15pm</a>
- 
-
-  </div>
-  </div>
-<div class="dropdown">
-  <button class="dropbtn">KUCHING</button>
-  <div class="dropdown-content">
-   <a href="purchase.php">1.15pm</a>
-    <a href="purchase.php">3.15pm</a>
- 
-
-  </div>  
-
-</div>
+<?php
+    }
+  ?>
 
 </div>
 
