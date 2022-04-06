@@ -1,8 +1,21 @@
 <!DOCTYPE html>
+<?php
+if (!isset($_SESSION['m_name'])){
+header("login.php");}
+?>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
-<?php include_once('config.php');?>
-<?php include('includes/navigation2.php'); ?>
+<?php
+include_once('config.php');
+include('includes/navigation2.php');
+
+$screening_id = $_GET['screening_id'];
+if (empty($screening_id)) {
+    header("Location: index.php?");
+}
+$total = $_GET['total'];
+?>
+
 <head>
     <title>Payment</title>
 </head>
@@ -45,7 +58,7 @@
 
         <table id="purchaseTable">
             <tr>
-                <td class="left">Final Total(RM): 57.00</td>
+                <td class="left">Final Total(RM): <?php echo number_format($total, 2); ?></td>
             </tr>
         </table>
         <hr style="width: 95%; margin:auto">
@@ -54,7 +67,7 @@
             <input type="button" id="cancel" value="Cancel" />
         </a>
         <input type="submit" name="Submit" value="MAKE PAYMENT" id='next'>
-        <!--fake prompt of payment done, link to upcoming movie in transaction history-->
+
     </form>
 
     <br><br><br>
@@ -62,18 +75,24 @@
     <?php
     if (isset($_POST['Submit'])) {
         $paymentType = $_POST['payment'];
-        $total = $_GET['total'];
-        
-        if(!empty($paymentType)){
+        $seatCode = $_GET['aParam'];
+
+        if (!empty($paymentType)) {
 
             include_once("config.php");
 
-            $submit = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type) VALUES('12','123456','$total','$paymentType')");
-            
-            echo '<script>alert("Payment Successful!")</script>';
-            header("Location: TransactionUpcoming.php");
+            $id = $_SESSION['member_id'];
 
-        }else if(empty($paymentType)){
+            $submitTransaction = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type) VALUES('$screening_id','$id','$total','$paymentType')");
+
+            foreach ($seatCode as $code) {
+                $query1 = "INSERT INTO seat (screening_id, seat_code, memberID) VALUES('$screening_id', '$code','$id')";
+
+                $q = mysqli_query($mysqli, $query1) or die(mysqli_error($link));
+            }
+
+            header("Location: TransactionUpcoming.php");
+        } else if (empty($paymentType)) {
             echo '<script>alert("Please choose a payment method.")</script>';
         }
     }

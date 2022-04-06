@@ -1,11 +1,21 @@
 <!DOCTYPE html>
+<?php
+if (!isset($_SESSION['m_name'])){
+header("login.php");}
+?>
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <link rel='stylesheet' href='style/numberSelector.css'>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="numberSelector.js"></script>
 
+<?php
+// $screening_id = $_GET['screening_id'];
+// if(empty($screening_id)){
+//     header("Location: index.php?");
+// }
+?>
+<?php include_once('config.php'); ?>
 <?php include('includes/navigation2.php'); ?>
+
 
 <head>
     <title>Ticket Purchasing</title>
@@ -15,7 +25,7 @@
 <?php
 
 // Check If form submitted, insert form data into announcement table.
-if (isset($_POST['Submit']) && $_POST['adult'] >0) {
+if (isset($_POST['Submit']) && $_POST['adult'] > 0) {
     //Obtain data posted from the form
     $adult = $_POST['adult'];
     $child = $_POST['child'];
@@ -24,10 +34,8 @@ if (isset($_POST['Submit']) && $_POST['adult'] >0) {
     $nugget = $_POST['nugget'];
     $coke = $_POST['coke'];
 
-    header("Location: seatSelection.php?adult=$adult&child=$child&popcorn=$popcorn&hotdog=$hotdog&nugget=$nugget&coke=$coke");
-}
-
-else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
+    header("Location: seatSelection.php?screening_id=$screening_id&adult=$adult&child=$child&popcorn=$popcorn&hotdog=$hotdog&nugget=$nugget&coke=$coke");
+} else if ((isset($_POST['Submit']) && $_POST['adult'] <= 0)) {
     echo '<script>alert("Please purchase at least 1 adult ticket.")</script>';
 }
 ?>
@@ -46,14 +54,11 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 </td>
                 <td>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="adult" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="adult" class="quantity-field">
                     </div>
+                    <br><br>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="child" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="child" class="quantity-field">
                     </div>
                 </td>
                 <td>
@@ -76,9 +81,7 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 <td>Popcorn</td>
                 <td>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="popcorn" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="popcorn" class="quantity-field">
                     </div>
                 </td>
                 <td>RM 11.00</td>
@@ -88,9 +91,7 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 <td>Hotdog</td>
                 <td>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="hotdog" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="hotdog" class="quantity-field">
                     </div>
                 </td>
                 <td>RM 8.00</td>
@@ -100,9 +101,7 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 <td>Nugget</td>
                 <td>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="nugget" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="nugget" class="quantity-field">
                     </div>
                 </td>
                 <td>RM 10.00</td>
@@ -112,9 +111,7 @@ else if ((isset($_POST['Submit']) && $_POST['adult'] <=0)){
                 <td>Coke</td>
                 <td>
                     <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="0" name="coke" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                        <input type="number" step="1" min="0" max="" value="0" name="coke" class="quantity-field">
                     </div>
                 </td>
                 <td>RM 5.00</td>
