@@ -36,7 +36,7 @@ if (isset($_POST['Submit'])) {
     // algorithm to check number of selected seat == adult + child 
 
     $selected = $_POST['seat'].",";
-    echo $selected;
+    
 
     header("Location: confirmation.php?adult=$adult&child=$child&popcorn=$popcorn&hotdog=$hotdog&nugget=$nugget&coke=$coke");
 }
