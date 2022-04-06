@@ -104,7 +104,7 @@
 	
       <div class="column">
 		<div id="container">
-		<button id="decrement" ><img src="image/reward.png" style="width:200px"/></button>
+		<button id="decrement" onclick="decreaseInteger(3000)"><img src="image/reward.png" style="width:200px"/></button>
         
 		<span class="column">3000 points</span>
 		
@@ -113,30 +113,44 @@
     
     </td>
 	
+	<td style="border-radius:50%">
 	
-     <td>
       <div class="column">
-        <input type ="image" src="image/rewardsecond.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">15000 points</span>
-      </div>
-      
-    </td>
-	  
-	<td>
-      <div class="column">
-        <input type ="image" src="image/rewardthird.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">15000 points</span>
-      </div>
-      
-    </td>
-
-    <td>
-      <div class="column">
-        <input type ="image" src="image/reward3.png" name="submit" alt ="submit " style="width:200px"/>
-		<span class="column">25000 points</span>
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(5000)"><img src="image/reward.png" style="width:200px"/></button>
+        
+		<span class="column">5000 points</span>
+		
+    
       </div>
     
     </td>
+	<td style="border-radius:50%">
+	
+      <div class="column">
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(7000)"><img src="image/reward.png" style="width:200px"/></button>
+        
+		<span class="column">7000 points</span>
+		
+    
+      </div>
+    
+    </td>
+	<td style="border-radius:50%">
+	
+      <div class="column">
+		<div id="container">
+		<button id="decrement" onclick="decreaseInteger(10000)"><img src="image/reward.png" style="width:200px"/></button>
+        
+		<span class="column">10000 points</span>
+		
+    
+      </div>
+    
+    </td>
+    
+      
 
   </tr>
 </table>
