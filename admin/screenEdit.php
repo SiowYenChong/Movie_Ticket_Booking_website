@@ -9,6 +9,8 @@ if (isset($_GET['logout'])) {
 }
 
 $sc_id = $_GET['id'];
+$screening_id = $_GET['id'];
+$occupied = mysqli_query($connect, "select * from seat where screening_id= '".$screening_id."' ");
 
 if (isset($_POST['update_screening'])) {
 	  mysqli_query($connect, "update screening set movie_id ='".$_POST['movie_id']."', branch_id='".$_POST['branch_id']."', hall_id ='".$_POST['hall_id']."', screening_date='".$_POST['screening_date']."', screening_time='".$_POST['screening_time']."'  where screening_id='".$sc_id."' ");
@@ -164,108 +166,179 @@ $(document).ready(function(){
 					</form>
 					<div class="screen-box">
 						<div class="movie-screen">
-							<div class="movie"></div>
-							<div class="seats">
-								<div class="row">
-									<div class="number">1</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">1</div>
-								</div>
-								<div class="row">
-									<div class="number">2</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">2</div>
-								</div>
-								<div class="row">
-									<div class="number">3</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">3</div>
-								</div>
-								<div class="row">
-									<div class="number">4</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">4</div>
-								</div>
-								<div class="path"></div>
-								<div class="row">
-									<div class="number">5</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat selected"></div>
-									<div class="seat selected"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">5</div>
-								</div>
-								<div class="row">
-									<div class="number">6</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">6</div>
-								</div>
-								<div class="row">
-									<div class="number">7</div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="number">7</div>
-								</div>
-							</div>
-						</div>
+                    <div class="movie"></div>
+                    <div class="seats">
+                        <div class="row">
+                            <div class="number">A</div>
+                            <?php
+                            for ($i = 1; $i <= 9; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "A$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="A' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">A</div>
+                        </div>
+                        <div class="row">
+                            <div class="number">B</div>
+                            <?php
+
+                            for ($i = 1; $i <= 9; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "B$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="B' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">B</div>
+                        </div>
+                        <div class="row">
+                            <div class="number">C</div>
+                            <?php
+
+                            for ($i = 1; $i <= 9; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "C$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="C' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">C</div>
+                        </div>
+                        <div class="row">
+                            <div class="number">D</div>
+                            <?php
+
+                            for ($i = 1; $i <= 9; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "D$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="D' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">D</div>
+                        </div>
+                        <div class="path"></div>
+                        <div class="row">
+                            <div class="number">E</div>
+                            <?php
+
+                            for ($i = 1; $i <= 11; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "E$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="E' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">E</div>
+                        </div>
+                        <div class="row">
+                            <div class="number">F</div>
+
+                            <?php
+
+                            for ($i = 1; $i <= 11; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "F$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="F' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">F</div>
+                        </div>
+                        <div class="row">
+                            <div class="number">G</div>
+                            <?php
+
+                            for ($i = 1; $i <= 11; $i++) {
+                                $x = 0;
+                                $occupied = mysqli_query($connect, "SELECT * FROM seat WHERE screening_id=$screening_id");
+                                while ($row = mysqli_fetch_array($occupied)) {
+                                    if ($row['seat_code'] == "G$i") {
+                                        $x = 1;
+                                    }
+                                }
+
+                                if ($x == 1) {
+                                    echo '<div class="seat occupied"></div>';
+                                    $x = 0;
+                                } else if ($x == 0) {
+                                    echo '<div class="seat"><input type="checkbox" name="seat[]" value="G' . $i . '" class="check"></div>';
+                                }
+                            }
+
+                            ?>
+                            <div class="number">G</div>
+                        </div>
+                    </div>
+                </div>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
 include_once('config.php');
+
+if(empty($_SESSION['member_id'])){
+    header('location:index.php');
+}
+
 ?>
 
 <html>

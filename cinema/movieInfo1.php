@@ -1,6 +1,10 @@
 <?php
 require_once 'config.php';
 
+if(empty($_SESSION['member_id'])){
+    header('location:logIn.php');
+}
+
 $movie_id = $_GET['id'];
 $fetch_movies_details = mysqli_query($mysqli, "select * from movie where movie_id = '" . $movie_id . "' ");
 $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
@@ -74,9 +78,11 @@ $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
   <h2> Rating: <?php echo $fetch_details['movie_rating']; ?></h2>
 
   <div>
+    
     <?php
     $fetch_movie_branches = mysqli_query($mysqli, "select branch.branch_name, branch.br_id from branch inner join screening on branch.br_id = screening.branch_id where screening.movie_id = '" . $fetch_details['movie_id'] . "' group by branch.branch_name ");
     while ($fetch_branches = mysqli_fetch_assoc($fetch_movie_branches)) {
+    
     ?>
       <div class="dropdown">
         <button class="dropbtn"><?php echo $fetch_branches['branch_name']; ?></button>
@@ -93,11 +99,18 @@ $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
             <a href="purchase.php?screening_id=<?php echo $screening_id ?>"><?php echo $time['screening_date']." ".$time['screening_time']; ?> <br> </a>
               
           <?php
-          } }
+          } 
           ?>
         </div>
       </div>
     <?php
+    } } 
+     
+    
+            if($fetch_details['movie_case'] == "coming soon"){
+      ?>
+<h1 style="color:red;">Stay tuned. Bookings for this movie will be available soon!</h1>
+      <?php
     }
     ?>
 

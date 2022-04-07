@@ -46,7 +46,7 @@ SIGN IN/
 ?>
 <li class=nav><a class=nav href="memberHome.php"> MEMBER HOME  </a></li>
 <li class=nav><a class=nav href="editProfile.php"> EDIT PROFILE  </a></li>
-<li class=nav><a class=nav href="transactionHistory.php"> TRANSACTION HISTORY  </a></li>
+<li class=nav><a class=nav href="TransactionUpcoming.php"> TRANSACTION HISTORY  </a></li>
 <?php } ?>
 
 

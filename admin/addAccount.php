@@ -21,9 +21,18 @@ if(isset($_POST['add_account'])){
 
 	mysqli_query($connect, "insert into member(m_name, m_gender, m_address, m_email, m_password, m_number, m_dob, m_card, m_points) values('".$_POST['m_name']."', '".$_POST['m_gender']."', '".$_POST['m_address']."', '".$_POST['m_email']."', '".$_POST['m_password']."', '".$_POST['m_number']."', '".$_POST['m_dob']."', '".$_POST['m_id_card']."', '".$_POST['m_points']."')");
 	//Transaction query
-	mysqli_query($connect, "insert into transaction(member_id, transaction_date, transaction_time, booking_price, payment_type, total_payment) values('".$_POST['m_id_card']."', '".$_POST['transaction_date']."', '".$_POST['transaction_time']."', '".$_POST['booking_price']."', '".$_POST['payment_type']."', '".$_POST['total_payment']."')");
+	if(!empty($_POST['transaction_date'])){
+
+
+		$fetch_member_id = mysqli_query($connect, "select * from member order by member_id desc");
+		$member_id = mysqli_fetch_assoc($fetch_member_id);
+		$last_member_id = $member_id['member_id'];
+		$new_member_id = $last_member_id ;
+
+	mysqli_query($connect, "insert into transaction(member_id, transactionDateTime, total_price, payment_type) values('".$new_member_id."', '".$_POST['transaction_date']."',  '".$_POST['booking_price']."', '".$_POST['payment_type']."')");
 
 	header('location:account-list.php');
+	}
 }
 
 ?>
@@ -113,17 +122,21 @@ if(isset($_POST['add_account'])){
 					<div class="box-account">
 						<div class="left">
 							<li>Transaction Date:</li>
-							<li>Transaction Time:</li>
 							<li>Booking Price:</li>
 							<li>Payment Type:</li>
-							<li>Total Payment:</li>
 						</div>
 						<div class="right">
-							<li><input type="date" name="transaction_date" style="width:750px; font-size: 1.3rem; border: none;"  required></li>
-							<li><input type="text" name="transaction_time" style="width:750px; font-size: 1.3rem; border: none;"  required></li>
-							<li><input type="text" name="booking_price" style="width:750px; font-size: 1.3rem; border: none;"  required></li>
-							<li><input type="text" name="payment_type" style="width:750px; font-size: 1.3rem; border: none;"  required></li>
-							<li><input type="text" name="total_payment" style="width:750px; font-size: 1.3rem; border: none;"  required></li>
+							<li><input type="date" name="transaction_date" style="width:750px; font-size: 1.3rem; border: none;" ></li>
+							<li><input type="text" name="booking_price" style="width:750px; font-size: 1.3rem; border: none;" ></li>
+							<li>
+								<select name="payment_type" style="width:750px; font-size: 1.3rem; border: none;">
+									<option value="VISA Card">VISA Card</option>
+									<option value="Mastercard">Mastercard</option>
+									<option value="Touch n Go eWallet">Touch n Go eWallet</option>
+									<option value="Bank Transfer">Bank Transfer</option>
+								</select>
+							</li>
+
 							
 						</div>
 					

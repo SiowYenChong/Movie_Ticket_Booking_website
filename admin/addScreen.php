@@ -35,6 +35,11 @@ if(isset($_POST['add_screen'])){
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>addScreen</title>
 		<link rel="stylesheet" href="./styles/style.css" />
+		<style type="text/css">
+			.content .main .box-account {
+    margin: 40px 2rem auto 2rem;
+}
+		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
 $(document).ready(function(){
@@ -142,7 +147,7 @@ $(document).ready(function(){
 						</div>
 							</form>
 					</div>
-					<div class="screen-box">
+					<!-- <div class="screen-box">
 						<div class="movie-screen">
 							<div class="movie"></div>
 							<div class="seats">
@@ -246,7 +251,7 @@ $(document).ready(function(){
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

@@ -96,9 +96,9 @@ header('location:account-list.php');
 							<li>
 								<select  name="m_gender" style="width:750px; font-size: 1.3rem; border: none;" required>
 									<option>Select Gender</option>
-									<option value="Male">Male</option>
-									<option value="Female">Female</option>
-									<option value="Other">Other</option>
+									<option value="Male" <?php if($member_details['m_gender'] == "Male"){ echo "selected";}?> >Male</option>
+									<option value="Female" <?php if($member_details['m_gender'] == "Female"){ echo "selected";}?>>Female</option>
+									<option value="Other" <?php if($member_details['m_gender'] == "Other"){ echo "selected";}?>>Other</option>
 								</select>
 							</li>
 							<li><input type="text" name="m_address" style="width:750px; font-size: 1.3rem; border: none;" value="<?php echo $member_details['m_address']; ?>" required></li>
@@ -115,7 +115,7 @@ header('location:account-list.php');
 					</div>
 					<br><br>
 					<?php
-						$member_transactions = mysqli_query($connect, "select * from transaction where member_id = '".$member_details['m_card']."' ");
+						$member_transactions = mysqli_query($connect, "select * from transaction where member_id = '".$member_details['member_id']."' ");
 					?>
 					<div class="txn">
 						<h3>Transaction History</h3>
@@ -130,7 +130,7 @@ header('location:account-list.php');
 								while($transaction = mysqli_fetch_assoc($member_transactions)){
 							?>
 							<tr>
-								<td><?php echo $transaction['transaction_date']; ?></td>
+								<td><?php echo $transaction['transactionDateTime']; ?></td>
 								<td><?php echo $transaction['transaction_id']; ?></td>
 								<td>KL00001</td>
 								<td>

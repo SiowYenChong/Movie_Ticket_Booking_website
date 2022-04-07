@@ -11,6 +11,9 @@ CFTv CINEMAS
     display: inline-block;
     list-style-type: none;
 }
+div#nowshowing-poster {
+    margin-bottom: -250px;
+}
 </style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
@@ -63,13 +66,27 @@ include('includes/navigation.php');
 
 //Fetch movies from database...
 $fetch_movies = mysqli_query($mysqli, "select * from movie where movie_case = 'now showing' ");
+//Fetch Movie Images
+$fetch_movie_images = mysqli_query($mysqli, "select * from movie ");
 
 ?>
 
 
 <div class="slideshow-container" data-cycle="3500">
+<?php
+		while($movie_images = mysqli_fetch_assoc($fetch_movie_images)){
+?>
 
 <div class="mySlides1 fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="../admin/images/<?php echo $movie_images['movie_poster'];?>" style="width:100%;height:550px;">
+ 
+</div>
+
+<?php
+		}
+?> 
+<!-- <div class="mySlides1 fade">
   <div class="numbertext">1 / 3</div>
   <img src="image/p1.jpg" style="width:100%; height:550px;">
  
@@ -85,7 +102,7 @@ $fetch_movies = mysqli_query($mysqli, "select * from movie where movie_case = 'n
   <div class="numbertext">3 / 3</div>
   <img src="image/p3.jpg" style="width:100%;height:550px;">
  
-</div>
+</div> -->
 
 <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
 <a class="next" onclick="plusSlides(1,0)">&#10095;</a>

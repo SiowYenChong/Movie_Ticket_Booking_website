@@ -80,12 +80,11 @@ button#update_profile_btn {
 						
 						<div class="right">
 							<li><?php echo $trans['transaction_id'];?></li>
-							<li><?php echo $trans['transaction_date']." ".$trans['transaction_time'];?></li>
+							<li><?php echo $trans['transactionDateTime'];?></li>
 							<li>A123456</li>
 							<li>Abc Movie</li>
 							<li>Abc Seat</li>
-							<li><?php echo $trans['payment_type'];?></li>
-							<li><?php echo $trans['total_payment'];?></li>
+							<li><?php echo $trans['total_price'];?></li>
 							<li><?php echo $trans['payment_type'];?></li>
 							<li>
 								<select name="new_status" value="<?php echo $trans['status'];?>">
