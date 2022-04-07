@@ -88,11 +88,12 @@ $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
             $screening_id = $time['screening_id'];
             
           ?>
-
-            <a href="purchase.php?screening_id=<?php echo $screening_id ?>"><?php echo $time['screening_time']; ?> <br> </a>
-
+            <?php 
+            if(date('Y-m-d') < $time['screening_date'] ) { ?>
+            <a href="purchase.php?screening_id=<?php echo $screening_id ?>"><?php echo $time['screening_date']." ".$time['screening_time']; ?> <br> </a>
+              
           <?php
-          }
+          } }
           ?>
         </div>
       </div>

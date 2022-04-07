@@ -6,6 +6,12 @@
 CFTv CINEMAS
 </title>
 <link rel="stylesheet" href="style/mystyle.css">  
+<style>
+  li.nav2 {
+    display: inline-block;
+    list-style-type: none;
+}
+</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script>
 
@@ -56,7 +62,7 @@ require_once 'config.php';
 include('includes/navigation.php');
 
 //Fetch movies from database...
-$fetch_movies = mysqli_query($mysqli, "select * from movie ");
+$fetch_movies = mysqli_query($mysqli, "select * from movie where movie_case = 'now showing' ");
 
 ?>
 
