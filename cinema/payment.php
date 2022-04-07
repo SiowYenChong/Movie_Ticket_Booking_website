@@ -21,6 +21,11 @@ $total = $_GET['total'];
 </head>
 
 <body>
+    <?php
+    if (!isset($_SESSION['m_name'])) {
+        header("Location: login.php");
+    }
+    ?>
     <h1 style=text-align:center>Payment</h1>
     <hr style="width: 300px; margin:auto">
 
@@ -76,9 +81,9 @@ $total = $_GET['total'];
     if (isset($_POST['Submit'])) {
         $paymentType = $_POST['payment'];
         $seatCode = $_GET['aParam'];
-        $points = (rand(100,500));
+        $points = (rand(100, 500));
 
-        
+
 
         if (!empty($paymentType)) {
 

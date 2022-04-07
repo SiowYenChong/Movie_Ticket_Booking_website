@@ -35,6 +35,11 @@ $seatCodeQuery = http_build_query(array('aParam' => $seatCode));
 
 
 <body>
+    <?php
+    if (!isset($_SESSION['m_name'])) {
+        header("Location: login.php");
+    }
+    ?>
     <h1 style=text-align:center>Purchase Confirmation</h1>
     <hr style="width: 300px; margin:auto">
 
@@ -55,7 +60,9 @@ $seatCodeQuery = http_build_query(array('aParam' => $seatCode));
                                 <td></td>
                                 <td></td>
                             </tr>
-                            <tr><td><br></td></tr>
+                            <tr>
+                                <td><br></td>
+                            </tr>
                             <tr>
                                 <td>Adult Seat</td>
                                 <td><?php echo $adult; ?></td>
