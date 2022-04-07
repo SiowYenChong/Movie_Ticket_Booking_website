@@ -11,10 +11,6 @@ if (empty($screening_id)) {
     header("Location: index.php?");
 }
 
-// if (!isset($_SESSION['m_name'])) {
-//     header("Location:login.php");
-// }
-
 $adult = $_GET['adult'];
 $child = $_GET['child'];
 $popcorn = $_GET['popcorn'];

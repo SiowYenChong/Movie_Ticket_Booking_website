@@ -2,7 +2,6 @@
 
 include_once("config.php");
 
-
 $screening_id = $_GET['screening_id'];
 if (empty($screening_id)) {
     header("Location: index.php?");

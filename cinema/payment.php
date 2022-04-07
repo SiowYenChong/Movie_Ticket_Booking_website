@@ -9,10 +9,6 @@ if (empty($screening_id)) {
     header("Location: index.php?");
 }
 
-// if (!isset($_SESSION['m_name'])) {
-//     header("Location:login.php");
-// }
-
 $total = $_GET['total'];
 ?>
 
@@ -92,14 +88,16 @@ $total = $_GET['total'];
             $id = $_SESSION['member_id'];
 
             $submitTransaction = mysqli_query($mysqli, "INSERT INTO transaction(screening_id, member_id, total_price, payment_type, points_earned) VALUES('$screening_id','$id','$total','$paymentType','$points')");
-
+            
             foreach ($seatCode as $code) {
-                $query1 = "INSERT INTO seat (screening_id, seat_code, member_id) VALUES('$screening_id', '$code','$id')";
+                $query1 = "INSERT INTO seat(screening_id, seat_code, member_id) VALUES('$screening_id', '$code','$id')";
 
                 $q = mysqli_query($mysqli, $query1) or die(mysqli_error($link));
             }
 
+
             header("Location: TransactionUpcoming.php");
+            
         } else if (empty($paymentType)) {
             echo '<script>alert("Please choose a payment method.")</script>';
         }
