@@ -53,7 +53,7 @@ function nowShowing(){
 
 <?php 
 require_once 'config.php';
-include('includes/navigationA.php');
+include('includes/navigation2.php');
 
 //Fetch movies from database...
 $fetch_movies = mysqli_query($mysqli, "select * from movie ");
