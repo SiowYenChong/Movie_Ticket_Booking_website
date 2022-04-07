@@ -2,7 +2,7 @@
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 
-<?php include('includes/navigationB.php'); ?>
+<?php include('includes/navigation.php'); ?>
 
 <head>
     <title>Home - Member</title>

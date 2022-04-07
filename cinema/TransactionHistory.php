@@ -7,7 +7,7 @@ include_once('config.php');
 
 <head>
     <title>Transaction History</title>
-    <?php include 'includes/navigation2.php'; ?>
+    <?php include 'includes/navigation.php'; ?>
     
     <link rel="stylesheet" href="style/mystyle.css">
 </head>

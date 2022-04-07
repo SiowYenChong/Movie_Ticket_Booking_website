@@ -2,8 +2,8 @@
 
 <html>
     <head>
-     <?php include_once('config.php');?>
-<?php include('includes/navigation2.php'); ?>
+
+<?php include('includes/navigation.php'); ?>
 	<link rel="stylesheet" href="style/mystyle.css">
     </head>
     <body>

@@ -2,6 +2,7 @@
 session_start();
 $mysqli = mysqli_connect("localhost", "root", "", "admin") or die('DB setting not valid...!');
 
+
 class member{
     public function login($data){
     $connect = mysqli_connect("localhost", "root", "", "admin") or die('DB setting not valid...!');
@@ -12,7 +13,7 @@ class member{
             $_SESSION['m_name'] = $row['m_name'];
             $_SESSION['member_id'] = $row['member_id'];
         
-            header('location:memberhome.php');
+            header('location:index.php');
         }
         else{
 			echo '<script language="javascript">';

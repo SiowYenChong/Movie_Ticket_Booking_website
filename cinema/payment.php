@@ -2,8 +2,7 @@
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <?php
-include_once('config.php');
-include('includes/navigation2.php');
+include('includes/navigation.php');
 
 $screening_id = $_GET['screening_id'];
 if (empty($screening_id)) {

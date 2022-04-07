@@ -15,7 +15,7 @@ $fetch_movies = mysqli_query($mysqli, "select * from movie where movie_case = 'n
 
 </head>
 
-<?php include('includes/navigation2.php');?>
+<?php include('includes/navigation.php');?>
 <body class=nav >
 
 
