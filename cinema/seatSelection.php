@@ -2,16 +2,10 @@
 
 include_once("config.php");
 
-
 $screening_id = $_GET['screening_id'];
 if (empty($screening_id)) {
     header("Location: index.php?");
-   
 }
-
-// if (!isset($_SESSION['m_name'])) {
-//     header("Location: login.php");
-// }
 
 $occupied = mysqli_query($mysqli, "SELECT * FROM seat WHERE screening_id=$screening_id");
 
@@ -68,6 +62,11 @@ if (isset($_POST['Submit'])) {
 ?>
 
 <body>
+    <?php
+    if (!isset($_SESSION['m_name'])) {
+        header("Location: login.php");
+    }
+    ?>
     <h1 style=text-align:center>Seat Selection</h1>
     <hr style="width: 300px; margin:auto">
 

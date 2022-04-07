@@ -7,11 +7,6 @@ $screening_id = $_GET['screening_id'];
 if (empty($screening_id)) {
     header("Location: index.php");
 }
-
-// if (!isset($_SESSION['m_name'])) {
-//     header("Location: login.php");
-// }
-
 ?>
 <?php include('includes/navigation.php'); ?>
 
@@ -40,6 +35,9 @@ if (isset($_POST['Submit']) && $_POST['adult'] > 0) {
 ?>
 
 <body>
+    <?php if (!isset($_SESSION['m_name'])) {
+        header("Location: login.php");
+    } ?>
     <h1 style=text-align:center>Purchase</h1>
     <hr style="width: 300px; margin:auto">
 
