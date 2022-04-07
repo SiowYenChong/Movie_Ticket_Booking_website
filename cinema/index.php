@@ -72,13 +72,13 @@ $fetch_movies = mysqli_query($mysqli, "select * from movie ");
 <div class="mySlides1 fade">
   <div class="numbertext">2 / 3</div>
   <img src="image/p2.jpg" style="width:100%;height:550px;">
-  <div class="text">Caption Two</div>
+ 
 </div>
 
 <div class="mySlides1 fade">
   <div class="numbertext">3 / 3</div>
   <img src="image/p3.jpg" style="width:100%;height:550px;">
-  <div class="text">Caption Three</div>
+ 
 </div>
 
 <a class="prev" onclick="plusSlides(-1,0)">&#10094;</a>
