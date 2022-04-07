@@ -11,6 +11,10 @@ if (empty($screening_id)) {
     header("Location: index.php?");
 }
 
+// if (!isset($_SESSION['m_name'])) {
+//     header("Location:login.php");
+// }
+
 $adult = $_GET['adult'];
 $child = $_GET['child'];
 $popcorn = $_GET['popcorn'];
@@ -90,6 +94,8 @@ $seatCodeQuery = http_build_query(array('aParam' => $seatCode));
         <hr style="width: 95%; margin:auto">
 
         <?php
+        $sub2 = 0;
+
         if ($popcorn > 0 || $hotdog > 0 || $nugget > 0 || $coke > 0) {
             echo '<table id="purchaseTable">';
             if ($popcorn > 0) {

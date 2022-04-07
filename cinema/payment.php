@@ -8,6 +8,11 @@ $screening_id = $_GET['screening_id'];
 if (empty($screening_id)) {
     header("Location: index.php?");
 }
+
+// if (!isset($_SESSION['m_name'])) {
+//     header("Location:login.php");
+// }
+
 $total = $_GET['total'];
 ?>
 
