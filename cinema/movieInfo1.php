@@ -62,7 +62,7 @@ $fetch_details = mysqli_fetch_assoc($fetch_movies_details);
   </style>
 </head>
 
-<?php include('includes/navigationB.php'); ?>
+<?php include('includes/navigation.php'); ?>
 
 <body class=nav>
   <h1><?php echo $fetch_details['movie_name']; ?></h1>

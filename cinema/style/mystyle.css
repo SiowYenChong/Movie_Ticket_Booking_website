@@ -260,13 +260,13 @@ li.b {
 }
 
 li.a.active {
-  color: red;
+  color: #e91d42;
 }
 
 li.a:hover,
 li.knowledgeBasedPageData:hover {
   animation: color-change 0.5s;
-  color: red;
+  color: #e91d42;
   cursor: pointer;
   background-color: #3f3f3f;
 }
@@ -291,7 +291,7 @@ li.spacing3 {
   }
 
   100% {
-    color: red;
+    color: #e91d42;
   }
 }
 
@@ -345,7 +345,7 @@ input.subject {
 input.submitt {
   font-size: 30px;
   margin-top: 30px;
-  background-color: red;
+  background-color: #e91d42;
   color: white;
   width: 200px;
   height: 100px;
@@ -364,7 +364,7 @@ input.ContactUs {
 
 .knowledgeBased {
   margin-top: 50px;
-  background-color: red;
+  background-color: #e91d42;
   width: 600px;
   height: 300px;
 }
@@ -372,7 +372,7 @@ input.ContactUs {
 .hotlineNumber,
 .submitTicket {
   margin-top: 50px;
-  background-color: red;
+  background-color: #e91d42;
   margin-left: 90px;
   width: 500px;
   height: 120px;
@@ -383,11 +383,11 @@ input.ContactUs {
 .submitTicket:hover,
 input.submitt:hover {
   cursor: pointer;
-  background-color: rgb(196, 1, 1);
+  background-color: #db2e4e;
 }
 
 td.head {
-  background-color: red;
+  background-color: #e91d42;
   color: white;
   /* width: 100px; */
   height: 40px;
@@ -509,7 +509,7 @@ h1 {
 }
 
 .footer-heading a:hover {
-  color: red;
+  color: #e91d42;
   transition: 0.3s ease-out;
 }
 

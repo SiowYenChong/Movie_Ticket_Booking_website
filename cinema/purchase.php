@@ -9,8 +9,7 @@ if(empty($screening_id)){
     header("Location: index.php?");
 }
 ?>
-<?php include_once('config.php'); ?>
-<?php include('includes/navigation2.php'); ?>
+<?php include('includes/navigation.php'); ?>
 
 
 <head>

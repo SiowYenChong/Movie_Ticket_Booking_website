@@ -23,7 +23,7 @@ $coke = $_GET['coke'];
 <html>
 <link rel='stylesheet' href='style/mystyle.css'>
 <link rel='stylesheet' href='style/seatStyle.css'>
-<?php include('includes/navigation2.php'); ?>
+<?php include('includes/navigation.php'); ?>
 
 
 
