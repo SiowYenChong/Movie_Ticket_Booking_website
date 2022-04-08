@@ -21,7 +21,7 @@ if(isset($_POST['add_account'])){
 
 	mysqli_query($connect, "insert into member(m_name, m_gender, m_address, m_email, m_password, m_number, m_dob, m_card, m_points) values('".$_POST['m_name']."', '".$_POST['m_gender']."', '".$_POST['m_address']."', '".$_POST['m_email']."', '".$_POST['m_password']."', '".$_POST['m_number']."', '".$_POST['m_dob']."', '".$_POST['m_id_card']."', '".$_POST['m_points']."')");
 	//Transaction query
-	if(!empty($_POST['transaction_date'])){
+	if(!empty($_POST['booking_price'])){
 
 
 		$fetch_member_id = mysqli_query($connect, "select * from member order by member_id desc");

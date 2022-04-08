@@ -50,7 +50,7 @@ $br_id = $_GET['id'];
   }
 
     if(isset($_POST['delete_branch'])){
-  	mysqli_query($connect, "delete from branch where br_id = '".$br_id."' ");
+  	mysqli_query($connect, "delete from branch where branch_id = '".$br_id."' ");
   	header('location:branchList.php');
   }
 

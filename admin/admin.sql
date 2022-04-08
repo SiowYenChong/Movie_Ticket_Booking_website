@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2022 at 09:21 PM
+-- Generation Time: Apr 08, 2022 at 11:33 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,21 +43,20 @@ CREATE TABLE `branch` (
 --
 
 INSERT INTO `branch` (`br_id`, `branch_id`, `branch_name`, `branch_address`, `branch_image`, `no_of_halls`, `hall_id`, `screening_id`) VALUES
-(39, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 1, NULL),
-(40, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 2, NULL),
-(41, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 3, NULL),
-(42, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 4, NULL),
-(43, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch.png', 5, 5, NULL),
-(44, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 5, 32, NULL),
-(45, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 5, 33, NULL),
-(46, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 5, 34, NULL),
-(47, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 5, 35, NULL),
-(48, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch2.png', 5, 36, NULL),
+(39, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch2.png', 5, 1, NULL),
+(40, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch2.png', 5, 2, NULL),
+(41, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch2.png', 5, 3, NULL),
+(42, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch2.png', 5, 4, NULL),
+(43, 'B001', 'CFTv KLCC', 'KLCC, Kuala Lumpur', 'branch2.png', 5, 5, NULL),
+(44, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch.png', 5, 32, NULL),
+(45, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch.png', 5, 33, NULL),
+(46, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch.png', 5, 34, NULL),
+(47, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch.png', 5, 35, NULL),
+(48, 'B002', 'CFTv Butterworth', 'Butterworth Penang', 'branch.png', 5, 36, NULL),
 (49, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 37, NULL),
 (50, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 38, NULL),
 (51, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 39, NULL),
-(52, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 40, NULL),
-(53, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 41, NULL);
+(52, 'B003', 'CFTv Kuching', 'Kuching, Sarawak', 'branch3.png', 5, 40, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,7 +92,22 @@ INSERT INTO `hall` (`h_id`, `hall_id`, `seat_id`, `hall_no`, `hall_type`, `hall_
 (38, '38', NULL, 2, 'Standard', 69),
 (39, '39', NULL, 3, 'Standard', 69),
 (40, '40', NULL, 4, 'Standard', 69),
-(41, '41', NULL, 5, 'Standard', 69);
+(41, '41', NULL, 5, 'Standard', 69),
+(42, '42', NULL, 1, 'Standard', 69),
+(43, '43', NULL, 2, 'Standard', 69),
+(44, '44', NULL, 3, 'Standard', 69),
+(45, '45', NULL, 4, 'Standard', 69),
+(46, '46', NULL, 5, 'Standard', 69),
+(47, '47', NULL, 1, 'Standard', 69),
+(48, '48', NULL, 2, 'Standard', 69),
+(49, '49', NULL, 3, 'Standard', 69),
+(50, '50', NULL, 4, 'Standard', 69),
+(51, '51', NULL, 5, 'Standard', 69),
+(52, '52', NULL, 1, 'Standard', 69),
+(53, '53', NULL, 2, 'Standard', 69),
+(54, '54', NULL, 3, 'Standard', 69),
+(55, '55', NULL, 4, 'Standard', 69),
+(56, '56', NULL, 5, 'Standard', 69);
 
 -- --------------------------------------------------------
 
@@ -121,11 +135,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `m_card`, `m_rewards`, `m_name`, `m_email`, `m_password`, `m_dob`, `m_gender`, `m_number`, `m_address`, `m_picture`, `m_points`) VALUES
-(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', '1233', '2000-10-07', 'Female', '018-2017978', 'Seremban', NULL, '100'),
-(7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Female', '012-3456789', 'Penang', NULL, '0'),
-(8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-03-01', 'Female', '010-454545500', 'Selangor', NULL, '1786'),
-(11, 'M004', NULL, 'Test Member', 'aa@test.com', '0000', '2022-04-07', 'Male', '09876557', 'ppp address', NULL, '0'),
-(12, 'M005', NULL, 'clairpp', 'dfh@test.com', '0000', '2022-04-07', 'Female', '0987655', 'jsdfsdjh', NULL, '0');
+(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', 'abcd1234', '2000-10-07', 'Select Gender', '018-2017978', 'Seremban', NULL, '4000'),
+(7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Select Gender', '012-3456789', 'Penang', NULL, '20000'),
+(8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-03-01', 'Select Gender', '010-454545500', 'Selangor', NULL, '20000');
 
 -- --------------------------------------------------------
 
@@ -150,11 +162,10 @@ CREATE TABLE `movie` (
 --
 
 INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`, `movie_date`, `movie_rating`, `movie_trailer`, `movie_desc`, `movie_case`) VALUES
-(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '126', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																																										', 'coming soon'),
+(7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '130', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																																																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																																																																					', 'coming soon'),
 (8, 'jujutsuKaisen.jpg', 'Jujutsu Kaisen 0', '105', '2021-12-24', 8, 'https://www.youtube.com/embed/UPRqnFnnrr8', '																Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.														', 'now showing'),
 (9, 'Batman.jpg', 'The Batman', '176', '2022-03-04', 8, 'https://www.youtube.com/embed/mqqft2x_Aa4', 'Batman ventures into Gotham City\'s underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator\'s plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis.							', 'now showing'),
-(10, 'minions.jpg', 'Minions: The Rise of Gru', '90', '2022-06-01', 8, 'https://www.youtube.com/embed/pN1HNkoL2QA', 'In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.', 'coming soon'),
-(11, 'case_study_c4ads_2.png', 'Infidelity In Suburbia - Full Movie', '90', '2022-04-07', 2, 'https://www.youtube.com/embed/o0rjJK7AGlA', 'Starring: Sarah Butler & Marcus Rosner\r\nWith her husband away at work, and her son at school, Laura dreams of a home-renovation project to supplant her restless days. Vince, her irresistibly hot private contractor, soon fulfills her more forbidden dreams. Wracked with guilt she ends their affair, but Vince’s cravings run deeper and darker than Laura imagines. In the basement of Laura’s suburban home, Vince is building a special room just for her. It’s a secret place to hide the object of his desire... and his rage.', 'now showing');
+(10, 'minions.jpg', 'Minions: The Rise of Gru', '90', '2022-06-01', 8, 'https://www.youtube.com/embed/pN1HNkoL2QA', 'In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.', 'coming soon');
 
 -- --------------------------------------------------------
 
@@ -177,9 +188,11 @@ CREATE TABLE `screening` (
 --
 
 INSERT INTO `screening` (`screening_id`, `screen_id`, `movie_id`, `branch_id`, `hall_id`, `screening_date`, `screening_time`) VALUES
-(12, '1', 8, 39, 1, '2022-04-10', '2pm'),
-(13, '2', 9, 49, 37, '2022-04-10', '9pm'),
-(14, '3', 11, 49, 39, '2022-04-09', '1:30pm');
+(12, '1', 8, 39, 1, '2022-06-10', '14:00'),
+(13, '2', 9, 49, 37, '2022-06-10', '09:00'),
+(15, '3', 9, 44, 32, '2022-05-08', '12:00'),
+(16, '4', 9, 49, 37, '2022-06-09', '00:00'),
+(17, '5', 8, 49, 37, '2022-05-22', '13:00');
 
 -- --------------------------------------------------------
 
@@ -199,39 +212,8 @@ CREATE TABLE `seat` (
 --
 
 INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `member_id`) VALUES
-(123488, 12, 'E5', 6),
-(123489, 12, 'E6', 6),
-(123490, 12, 'E7', 6),
-(123491, 12, 'A1', 8),
-(123492, 12, 'A2', 8),
-(123493, 12, 'C4', 8),
-(123494, 12, 'C5', 8),
-(123495, 12, 'C6', 8),
-(123496, 12, 'D8', 8),
-(123497, 12, 'D9', 8),
-(123498, 13, 'B4', 8),
-(123499, 13, 'A1', 8),
-(123500, 13, 'A2', 8),
-(123501, 13, 'A3', 8),
-(123502, 13, 'A4', 8),
-(123503, 13, 'A5', 8),
-(123504, 13, 'A6', 8),
-(123505, 13, 'A7', 8),
-(123506, 13, 'A8', 8),
-(123507, 13, 'A9', 8),
-(123508, 13, 'B1', 8),
-(123509, 13, 'B6', 8),
-(123510, 13, 'E5', 8),
-(123511, 13, 'E6', 8),
-(123512, 13, 'E7', 8),
-(123513, 13, 'F3', 8),
-(123514, 13, 'G7', 8),
-(123515, 13, 'E2', 6),
-(123516, 13, 'E3', 6),
-(123517, 13, 'F5', 6),
-(123518, 13, 'F9', 6),
-(123519, 13, 'F10', 6),
-(123520, 12, 'A8', 6);
+(123521, 13, 'D4', 6),
+(123522, 13, 'D5', 6);
 
 -- --------------------------------------------------------
 
@@ -255,18 +237,7 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `transactionDateTime`, `total_price`, `payment_type`, `status`, `points_earned`) VALUES
-(39, 12, 6, '2022-04-07 09:51:41', '80', 'Mastercard', 'Successful', 315),
-(40, 12, 8, '2022-04-07 16:38:44', '30', 'Touch n Go eWallet', 'Successful', 332),
-(41, 12, 8, '2022-04-07 16:51:17', '50', 'VISA Card', 'Successful', 401),
-(42, 12, 8, '2022-04-07 19:39:37', '30', 'Touch n Go eWallet', 'Successful', 166),
-(43, 13, 8, '2022-04-07 19:54:32', '20', 'Touch n Go eWallet', 'Successful', 497),
-(44, 13, 8, '2022-04-07 22:57:21', '150', 'Touch n Go eWallet', 'Successful', 190),
-(45, 13, 8, '2022-04-07 23:00:55', '20', 'Mastercard', 'Successful', 100),
-(46, 13, 8, '2022-04-07 23:01:51', '100', 'VISA Card', 'Successful', 100),
-(47, NULL, 11, '2022-04-08 00:00:00', '100', 'VISA Card', 'Successful', 0),
-(48, NULL, 12, '2022-04-07 00:00:00', '90', 'VISA Card', 'Successful', 0),
-(49, 13, 6, '2022-04-07 23:58:09', '100', 'Mastercard', 'Successful', 0),
-(50, 12, 6, '2022-04-08 00:07:44', '20', 'Mastercard', 'Successful', 100);
+(51, 13, 6, '2022-04-08 03:44:09', '62', 'Touch n Go eWallet', 'Successful', 100);
 
 -- --------------------------------------------------------
 
@@ -359,43 +330,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `hall`
 --
 ALTER TABLE `hall`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `screening`
 --
 ALTER TABLE `screening`
-  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
-  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123521;
+  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123523;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `users`

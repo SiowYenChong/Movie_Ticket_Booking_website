@@ -113,7 +113,7 @@ $fetch_member_points_here = mysqli_query($mysqli, "select * from member where me
                     <div id="container">
                         <button id="decrement" onclick="decreaseInteger(3000)"><img src="image/reward.png" style="width:200px" /></button>
 
-                        <span class="column">3000 popcorns</span>
+                        <span class="column">3000 points</span>
                     </div>
 
             </td>
