@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2022 at 11:33 AM
+-- Generation Time: Apr 12, 2022 at 03:37 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -135,9 +135,12 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `m_card`, `m_rewards`, `m_name`, `m_email`, `m_password`, `m_dob`, `m_gender`, `m_number`, `m_address`, `m_picture`, `m_points`) VALUES
-(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', 'abcd1234', '2000-10-07', 'Select Gender', '018-2017978', 'Seremban', NULL, '4000'),
+(6, 'M001', NULL, 'Claire Chong', 'Clairechong998@gmail.com', 'abcd1234', '2000-10-07', 'Select Gender', '018-2017978', 'Seremban', NULL, '1300'),
 (7, 'M002', NULL, 'Neesha A/P Jothi', 'neesha@utar.edu.my', '1234', '1988-01-01', 'Select Gender', '012-3456789', 'Penang', NULL, '20000'),
-(8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-03-01', 'Select Gender', '010-454545500', 'Selangor', NULL, '20000');
+(8, 'M003', NULL, 'Khor Kok Chin', 'kckhor@utar.edu.my', '1234', '1983-03-01', 'Select Gender', '010-454545500', 'Selangor', NULL, '20000'),
+(17, NULL, NULL, 'Siow', 'Clairechong998@gmail.com', 'Abcd123!@#', '2000-01-01', 'Female', '019-3095980', 'Sban', NULL, ''),
+(18, NULL, NULL, 'CHONG', 'yen@gmail.com', 'abcd1234', '1999-01-01', 'Female', '+10182017978', 'hello', NULL, ''),
+(19, NULL, NULL, 'Tan', 'gg@gmail.com', 'Abc1234!@#$', '1999-01-01', 'Male', '0126118372', 'Sban', NULL, '100');
 
 -- --------------------------------------------------------
 
@@ -165,7 +168,9 @@ INSERT INTO `movie` (`movie_id`, `movie_poster`, `movie_name`, `movie_duration`,
 (7, 'drStrange.jpg', 'Doctor Strange in the Multiverse of Madness', '130', '2022-05-04', 9, 'https://www.youtube.com/embed/aWzlQ2N6qqg', '																																																																																Dr Stephen Strange casts a forbidden spell that opens a portal to the multiverse. However, a threat emerges that may be too big for his team to handle.																																																																					', 'coming soon'),
 (8, 'jujutsuKaisen.jpg', 'Jujutsu Kaisen 0', '105', '2021-12-24', 8, 'https://www.youtube.com/embed/UPRqnFnnrr8', '																Yuta Okkotsu gains control of an extremely powerful, cursed spirit and gets enrolled in the Tokyo Prefectural Jujutsu High School by sorcerers to help him control his power and keep an eye on him.														', 'now showing'),
 (9, 'Batman.jpg', 'The Batman', '176', '2022-03-04', 8, 'https://www.youtube.com/embed/mqqft2x_Aa4', 'Batman ventures into Gotham City\'s underworld when a sadistic killer leaves behind a trail of cryptic clues. As the evidence begins to lead closer to home and the scale of the perpetrator\'s plans become clear, he must forge new relationships, unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis.							', 'now showing'),
-(10, 'minions.jpg', 'Minions: The Rise of Gru', '90', '2022-06-01', 8, 'https://www.youtube.com/embed/pN1HNkoL2QA', 'In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.', 'coming soon');
+(10, 'minions.jpg', 'Minions: The Rise of Gru', '90', '2022-06-01', 8, 'https://www.youtube.com/embed/pN1HNkoL2QA', 'In the 1970s, young Gru tries to join a group of supervillains called the Vicious 6 after they oust their leader -- the legendary fighter Wild Knuckles. When the interview turns disastrous, Gru and his Minions go on the run with the Vicious 6 hot on their tails. Luckily, he finds an unlikely source for guidance -- Wild Knuckles himself -- and soon discovers that even bad guys need a little help from their friends.', 'coming soon'),
+(14, 'morbius.jpg', 'Morbius', '110', '2022-04-01', 5, 'https://www.youtube.com/embed/oZ6iiRrz1SY', 'Dangerously ill with a rare blood disorder and determined to save others from the same fate, Dr. Morbius attempts a desperate gamble. While at first it seems to be a radical success, a darkness inside of him is soon unleashed.', 'now showing'),
+(15, 'fantasticbeast.jpg', 'Fantastic Beasts: The Secrets of Dumbledore', '143', '2022-04-13', 9, 'https://www.youtube.com/embed/Y9dr2zw-TXQ', '								Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald\'s growing legion of followers.							', 'coming soon');
 
 -- --------------------------------------------------------
 
@@ -192,7 +197,8 @@ INSERT INTO `screening` (`screening_id`, `screen_id`, `movie_id`, `branch_id`, `
 (13, '2', 9, 49, 37, '2022-06-10', '09:00'),
 (15, '3', 9, 44, 32, '2022-05-08', '12:00'),
 (16, '4', 9, 49, 37, '2022-06-09', '00:00'),
-(17, '5', 8, 49, 37, '2022-05-22', '13:00');
+(17, '5', 8, 49, 37, '2022-05-22', '13:00'),
+(18, '6', 14, 44, 34, '2022-04-13', '23:00');
 
 -- --------------------------------------------------------
 
@@ -213,7 +219,17 @@ CREATE TABLE `seat` (
 
 INSERT INTO `seat` (`seat_id`, `screening_id`, `seat_code`, `member_id`) VALUES
 (123521, 13, 'D4', 6),
-(123522, 13, 'D5', 6);
+(123522, 13, 'D5', 6),
+(123523, 17, 'E6', 6),
+(123524, 17, 'E7', 6),
+(123525, 17, 'E4', 6),
+(123526, 17, 'E5', 6),
+(123527, 17, 'F5', 6),
+(123528, 17, 'F6', 6),
+(123529, 17, 'F7', 6),
+(123530, 17, 'F8', 6),
+(123531, 17, 'G5', 19),
+(123532, 17, 'G6', 19);
 
 -- --------------------------------------------------------
 
@@ -237,7 +253,17 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `screening_id`, `member_id`, `transactionDateTime`, `total_price`, `payment_type`, `status`, `points_earned`) VALUES
-(51, 13, 6, '2022-04-08 03:44:09', '62', 'Touch n Go eWallet', 'Successful', 100);
+(51, 13, 6, '2022-04-08 03:44:09', '62', 'Touch n Go eWallet', 'Successful', 100),
+(52, 17, 16, '2022-04-10 15:11:48', '70', 'VISA Card', 'Successful', 100),
+(53, 17, 16, '2022-04-10 15:11:59', '70', 'Mastercard', 'Successful', 100),
+(54, 17, 6, '2022-04-10 15:14:06', '51', 'Mastercard', 'Successful', 100),
+(55, 17, 6, '2022-04-10 15:16:10', '40', 'Touch n Go eWallet', 'Successful', 100),
+(56, 12, 17, '2022-04-10 15:48:34', '62', 'Touch n Go eWallet', 'Successful', 100),
+(57, 12, 18, '2022-04-10 16:08:18', '40', 'Touch n Go eWallet', 'Successful', 100),
+(58, 13, 18, '2022-04-10 16:09:45', '30', 'Bank Transfer', 'Successful', 100),
+(59, 12, 18, '2022-04-10 16:18:04', '31', 'Mastercard', 'Successful', 100),
+(60, 17, 6, '2022-04-11 09:30:09', '70', 'Mastercard', 'Successful', 100),
+(61, 17, 19, '2022-04-12 19:52:29', '40', 'Touch n Go eWallet', 'Successful', 100);
 
 -- --------------------------------------------------------
 
@@ -342,31 +368,31 @@ ALTER TABLE `hall`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `screening`
 --
 ALTER TABLE `screening`
-  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `screening_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
-  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123523;
+  MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123533;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `users`
